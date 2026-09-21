@@ -1,45 +1,41 @@
-# 成组资产、动作序列与交付
+# Grouped assets and motion
 
-把身份、画法、空间关系、时间连续性分开审核。单帧美观不能证明动作连贯。
+Review identity, drawing style, spatial relationships and continuity separately. An attractive frame does not establish a coherent action.
 
-## 默认方法：固定共同约束，同图成组生产
+## Generate related content together
 
-这是通用的资产生产方法，不限于角色：把具有连续关系或对应关系的内容放在同一张图中生成，再切分、按关系验证和局部修复。常用一张 4×4、共 16 格的表；根据单格细节、资产尺寸和关系数量调整布局，不机械凑满。这样可以在同一次生成中比较身份、画法和相互关系，减少逐张重新建立约束的次数；它不是一致性、精确网格或完整运动相位的保证。不要因为一次透明失败就切回整批逐张生产：透明、排版、身份和连续性分别判定。
+Use one sheet for related actions, effect stages, object states or matching components, then split and verify them. A 3×3 sheet works for a nine-frame study; 4×4 is another common layout. Choose the count for detail and relationships, not a fixed quota. Grouping does not guarantee a precise grid, consistent identity or complete motion phases. Treat transparency failures separately from layout and continuity.
 
-先说明表中关系：
+State what the cells represent:
 
-- 时间序列：角色动作、蓄力→释放→命中→消散的法术、烟火爆炸等。给出逐格阶段、时序、循环和事件，按序播放。
-- 对应状态：物件完好→受损→破坏、机关关闭/开启、同一装备的不同朝向。保持结构、相机和锚点，检查切换前后对应；不能将离散状态冒充平滑动画。
-- 成套组件：同一法术的投射物/尾迹/命中效果、同套装备或 UI 状态等。锁定共用造型/色板/尺度规则，逐项检查配套关系；不同用途可以有明确不同的尺寸或锚点，不强制同一播放顺序。
+- **Timeline:** character actions, charge/release/impact/fade, smoke or explosions. Define phases, timing, loops and events, then play in order.
+- **States:** intact/damaged/destroyed objects, closed/open mechanisms or equipment directions. Preserve structure, camera and anchors. Do not present discrete states as smooth animation.
+- **Components:** projectiles, trails and impacts, equipment sets or UI states. Share design and palette rules; different uses may need different sizes or anchors and no common playback order.
 
-不要把无关资源塞进一张表而失去细节或增加约束冲突。
+Do not crowd unrelated assets into a sheet at the expense of detail.
 
-1. 固定已检查的母版或共同设计约束，明确视角、比例、结构、色板和最终显示尺寸。角色补充朝向与装备，法术补充核心形状、能量方向和透明层次，物件补充损坏前后的结构对应。用户提供的动作表可以只作排版/姿势参考，不能替换项目身份。
-2. 调用前写出逐格动作清单和分组。例如第 1–8 格跑步，第 9–12 格跳跃，第 13–16 格受击/倒地；这个分配可以按游戏用途改变。每组定义起止、接触/支撑相位、循环方式及动作事件。跑步要明确左右腿交替的接触、压缩、经过、蹬离，避免八张近似姿势。
-3. 请求统一画面尺度、相机、留白和适用的空间参照，主体及附属效果完整，禁止相邻格重叠。角色关注脚底和武器，法术关注发射原点/运动方向/扩散边界，组件关注连接点；透明要求仍按透明分支检查。提示中写 16 格不等于文件有 16 个合格项。
-4. 主 agent 检查整张实际原图、全部帧及正常速度播放。读取真实尺寸，使用明确裁框和共享尺度/锚点；既保留未矫正版，也记录有依据的布局调整。不要只看十六张静态缩略图就判断动画连贯。
-5. 只修有问题的帧或动作组。引用固定母版及选中的动作表，明确不可改变项与错误相位；保留成功帧。修复后重新检查身份、相邻帧和循环接缝。没有新依据时不重复相同失败调用。
-6. 在目标游戏尺寸和实际使用逻辑下验证锚点、碰撞、连接及事件。角色检查枪口/脚底，法术检查发射/命中/消散，状态资产检查结构切换，组件检查组合效果。资源预览通过不等于实机通过；用户验收独立记录。
+1. Inspect the shared master and fix camera, proportions, structure, palette and display size. Record equipment and facing for characters, origin and energy direction for effects, and structural correspondence for state changes. A pose sheet need not supply character identity.
+2. Define each cell before generation. For example, cells 1–8 may run, 9–12 jump and 13–16 react or fall; adapt the grouping to the task. Define start/end, support/contact phases, loops and events. Runs need alternating left/right contacts, compression, passing and push-off, not near-duplicate poses.
+3. Request shared scale, camera, margins and relevant spatial references. Keep bodies and effects complete and cells separate. Check feet and weapons, effect origins and boundaries, and component joints. Requested cell count is not evidence of usable outputs.
+4. Inspect the original, every frame and normal-speed playback. Measure actual dimensions. Use explicit crops and shared scales/anchors. Preserve an uncorrected review version and document justified layout adjustments. Static thumbnails do not prove continuity.
+5. Repair affected frames or groups using the fixed master and selected sheet. Specify invariant features and faulty phases. Retain good frames; recheck identity, neighbors and loop seams. Stop identical retries without new evidence.
+6. When game integration is in scope, verify anchors, collisions, connections and events at game size under actual logic. A preview is separate from engine testing and user acceptance.
 
-16 格是常用的成组布局，不是所有资产的固定数量。短特效、机械状态或对应组件可用适当的小组；单图用于母版、针对性修复或确实独立的内容。不同数量以关系和可读性为依据，不为凑格复制帧，也不默认逐帧调用效率更高。每批记录生成/修订次数、可用项和实际耗时；不同任务的小样本不能冒充严格 A/B 或普遍成功率。
+Keep each reference's identity/style/pose role explicit. Do not chain only the preceding generated frame and accumulate drift. Establish key poses and action events before choosing intermediate frames and durations. Label isolated poses as a key-pose study, not a complete animation. Record generation/revision counts, usable outputs and actual elapsed time when comparing batches; small unrelated samples are not a controlled benchmark.
 
-明确每张参考的身份/风格/姿势用途。共享母版保持稳定；不要只连续引用上一张生成帧而积累漂移。先确定关键姿势与动作事件，再决定补帧数量与时长。少量独立姿势应标为关键姿势演示，不伪称完整动画。
+## Review
 
-## 实际检查
+- Idle/walk/run: loop seam, alternating support, foot sliding, body volume, clothing and hair flicker.
+- Attack/hit: anticipation, contact, force and recovery. Repetition or ping-pong playback must not hide missing phases.
+- Jump: distinguish body movement from ground projection. Preview playback does not validate engine logic.
+- Effects: onset, peak, impact and fade. Residue is not complete disappearance. Check translucency and hierarchy.
 
-- 待机/行走/跑步：循环首尾、支撑脚交替、脚底滑动、身体体积、衣物和头发闪烁。
-- 单次攻击/受击：蓄力、接触、发力、回收是否可辨；不能以往返播放或重复帧掩盖缺失过程。
-- 跳跃：身体运动与地面投影独立；资源预览不等于已经验证引擎逻辑。
-- 特效：起始、峰值、命中和消散；最后有残留就不要宣称已完全消失。检查透明效果与主体的视觉层次。
+Timing and hit/cancel events are handoff data. Code cannot supply a move the artwork never depicts. Without a game-integration request, record candidate events without changing combat code.
 
-动作时间和命中/取消事件属于双方交接的数据；资源应支持相应逻辑，不能让程序凭空补出美术未表现的招式。未要求接入游戏时只记录事件候选，不修改战斗实现。
+## Crop and assemble
 
-## 切帧与组装
+Read actual dimensions. If equal division fails, a fist crosses a cell, a glow touches an edge or a neighbor intrudes, inspect and specify crops. Do not independently scale each frame to its subject bounds; that erases spatial relationships.
 
-读取实际尺寸，不相信提示里的网格承诺。等分不能整除、拳头跨格、光晕碰边、邻格串入时，先看原图再明确裁框；禁止直接按主体包围盒逐帧缩放，这会抹掉空间关系。
+Place rectangular crops on a shared canvas with explicit offsets. Record source, crop, position, duration, optional anchors/events and manual changes. Never silently clip. Document anchor adjustments rather than using automatic alignment to hide drift. Keep before/after versions when corrections are necessary. Crop fixes do not repair motion timing.
 
-用矩形裁切＋明确 offset 放入共享画布；记录每帧原图、裁框、位置、持续时间、锚点/事件（若有）和所有人工调整。禁止静默截断。需要移动锚点时注明调整及依据，不用自动对齐掩盖模型漂移。
-
-先生成未矫正的审核版以看清问题，确需修正再保留前后对照。调整裁框可以救回跨格拳头，不能自动改善动作节奏。
-
-交付顺序帧 PNG/图集与时序数据，附 GIF 或其他合适预览。帧率/帧数按动作决定，不默认所有动作8帧/10fps。循环只用于循环动作或明确标注的反复审核；单次动作默认播放一次。GIF 编码可能合并相同帧，应核验总时长和解码结果，不把编码帧数减少直接认定为资源丢失。
+Deliver sequential PNGs or an atlas, timing data and a GIF or suitable preview. Choose count and timing for the action. One-shot actions play once by default; looping is for cycles or explicitly labeled repeated review. GIF encoding may merge identical frames, so verify decoded timing and duration before concluding that frames were lost.

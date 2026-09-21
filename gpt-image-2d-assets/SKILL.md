@@ -1,36 +1,36 @@
 ---
 name: gpt-image-2d-assets
-description: 用内置 GPT Image 生成、编辑和审核 2D 美术资源，可选 261 种图库风格、扩展游戏风格、自带参考或混合风格；支持角色、图标、场景、组件、动作表和特效序列的透明检查、切帧及播放交付。
+description: Generate, edit and review 2D art with built-in GPT Image. Choose from 261 reference styles, 24 game-art recipes, custom references or mixed traits; inspect transparency, cut sprite sheets and deliver timed animation previews.
 ---
 
-# GPT Image 2D 美术：选风格到资源交付
+# GPT Image 2D Assets
 
-统一入口：先理解用户要提示词、选方向、生成资源还是审核已有图片，再完成对应结果。支持游戏资产和独立 2D 插画，不接管整个游戏开发。沿用当前授权与已选风格；用户明确要求先讨论、先选方向或亲自验收时尊重该边界。
+Handle style exploration, prompt writing, asset generation or review according to the user's request. Cover game assets and standalone illustrations without taking over game development. Reuse the current authorization and selected style; respect explicit discussion, direction-selection and user-acceptance gates.
 
-## 选择本次路径
+## Choose a path
 
-- 已有风格/母版：直接沿用，避免重新选风格。先打开实际参考图，区分身份、画风、姿势与排版的作用。
-- 自选编号、浏览风格、自然语言找风格、扩展或混合：读 [风格选择与锁定](references/style-selection.md)。保留 001–261 原编号，扩展使用 G01–G24，不冲突。用户也可以描述自己的风格或提供参考。
-- 只要提示词：输出提示，不调用生图。明确“生成/制作资源”时执行生产，不因编号风格入口的提示词默认值而停下。
-- 风格未指定：从项目母版/上下文推断；仍不明确时给少量具体候选。用户授权自行决定时选一个符合用途的方向直接做首样，说明假设，不新增审批关卡。
-- 动作、连续特效、物件状态、对应组件：读 [成组资产与序列](references/motion.md)。透明资源读 [透明与边缘](references/transparency.md)。执行测量、切帧或组装时读 [工具用法](references/tools.md)。只加载本次需要的细节。
-- 已明确启用委派且存在独立批次时读 [Luna 交接](references/delegation.md)。否则主任务直接执行。
-- 工具变化或询问参数/型号时读 [能力记录](references/capabilities.md)，以当前 schema 为准。
+- Existing master or style: inspect the actual reference and reuse it. Distinguish identity, style, pose and layout references.
+- Style IDs, browsing, custom or mixed styles: read [style selection](references/style-selection.md). Original IDs 001–261 and game recipes G01–G24 are separate namespaces.
+- Prompt only: return a prompt without generating. An explicit production request should proceed to generation, even when it starts with a style ID.
+- Unspecified style: infer from the project or offer a few concrete choices. If the user delegates the choice, select a suitable direction and make a first sample without inventing an approval gate.
+- Actions, effects, states or related components: read [motion and grouped assets](references/motion.md). For alpha work, read [transparency](references/transparency.md). For inspection and assembly, read [tools](references/tools.md). Load only relevant references.
+- Read [delegation](references/delegation.md) only when delegation is explicitly enabled and independent work exists. Otherwise execute on the main task.
+- For tool parameters or model questions, read [capabilities](references/capabilities.md) and check the current schema.
 
-## Astra 主任务的工作方式
+## Working with Astra
 
-保持用户选定的主模型；由它完成需求判断、参考分析、提示组织、实际看图与修复决策。Astra 是协调和审核模型，不代表 GPT Image 后端名称。不写死或虚构 seed、quality、background、FPS 等工具未公开参数。
+Keep the user's selected main model responsible for planning, reference analysis, prompts, actual image review and repair decisions. Astra is the coordinator, not the image backend. Do not invent unexposed model, seed, quality, background or FPS parameters.
 
-用简短的资产约定保存会影响结果的事实：用途和目标显示尺寸、内容/身份、镜头与比例、风格可观察特征、参考角色、透明要求、输出组织。没有实际意义的字段省略。批量工作把约定放在项目版本目录，避免每张图重建规则。
+Record the useful asset constraints: purpose, target display size, subject and identity, camera, proportions, observable style traits, reference roles, transparency and output organization. Omit irrelevant fields. Reuse this contract across a batch.
 
-## 生成、修复与交付
+## Generate, review and deliver
 
-1. 提示按内容 → 风格 → 资产结构 → 必要限制组织。画风具体到轮廓、色块、明暗、材质和细节密度；参考图里的主题、构图或文字不能未经用户要求混入资产。目标尺寸下的识别度比纹理数量重要。
-2. 视觉生成及修改只用内置 GPT Image；本地引用先实际打开。保存工具明确返回的原图、确切提示、参考及其作用、结果路径和调用状态到独立版本目录，不猜最新文件、不覆盖母版。脚本只做测量、裁切、补边、组装已有像素，不能伪造动作或画出替代美术。
-3. 共享身份/风格先检查母版再扩展。有连续或对应关系的动作、法术阶段、状态与组件默认同图成组；格数依据内容复杂度和可读性，16 格是常用例而非硬指标。不同序列分别播放，不能把状态集合误当连续动画。独立插画/图标不强制拼表。
-4. 主任务打开实际图片，检查主题准确、身份一致、风格匹配、轮廓/边缘与目标尺寸可读性。动作检查逐帧与播放；像素、透明、无缝拼接等要求另做对应检查。记录具体缺陷，保留好结果，按受影响区域或序列定向修复，再打开新结果复核。不等用户发现错误才修已授权范围内的缺陷。
-5. 交付约定原图/组件/序列、必要播放预览与简明生成记录。分别说明已生成、技术检查、实际视觉审核、引擎验证和用户验收；任一层通过不能代替另一层。
+1. Organize prompts as subject, style, asset structure and necessary constraints. Describe contours, color blocks, lighting, materials and detail density. Reference subjects, text and compositions must not leak into the requested asset. Prioritize readability at the intended size.
+2. Generate and edit art only with built-in GPT Image. Inspect local references first. Save the exact returned original, prompt, reference roles, output path and call status in a versioned directory. Do not guess the newest file or overwrite masters. Scripts may measure, crop, pad and assemble existing pixels; they must not draw substitutes or fabricate motion.
+3. Inspect the shared master before expanding. Generate related actions, spell stages, states and components together where practical. Choose the grid for the content and readability: 3×3 and 4×4 are examples, not fixed requirements. Play separate sequences separately. Discrete states are not continuous animation. Independent illustrations do not require a sheet.
+4. Open the actual results. Review subject accuracy, identity, style, edges and target-size readability. Check both frames and playback for motion. Add appropriate pixel, alpha or seam checks. Record specific defects, retain good outputs, make targeted repairs and inspect the new result.
+5. Deliver originals, components or sequences, necessary playback previews and concise records. Distinguish generation, technical checks, visual review, engine validation and user acceptance.
 
-## 边界
+## Scope and stopping
 
-不把风格探索自动扩大成整套资源；不把用户批准风格当成所有帧合格。未要求时不改游戏。透明修复失败先核对调用并尝试有依据的简短单目标编辑或分组实验，保留成功输出；没有新依据时停止同样的重试。确认额度耗尽、权限拒绝或工具不可用时停止受影响调用，继续整理与审核，不切换供应商规避。
+Do not expand style exploration into a full asset set or treat style approval as approval of every frame. Do not edit a game unless requested. If a transparency edit fails, verify the target and try a justified, focused edit or grouped experiment. Preserve successes and stop identical retries without new evidence. Stop affected calls on confirmed quota exhaustion, permission denial or tool unavailability; continue organization and review without switching providers to evade the limitation.

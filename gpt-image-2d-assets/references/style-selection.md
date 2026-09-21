@@ -1,39 +1,38 @@
-# 风格选择、适配与锁定
+# Choose and apply a style
 
-风格数据由同级 `handdraw-style-prompter` 维护。路径从本 skill 的父目录解析，不依赖项目 cwd；只查所选条目，不把整库装进上下文。该配套库缺失时仍可按用户描述/参考生产，明确编号查询暂不可用，不能编造编号含义。
+Resolve the sibling `handdraw-style-prompter` from this skill's parent directory, not the project working directory. Query selected entries instead of loading the whole library. If the companion is absent, use the user's descriptions or references and disclose that numbered lookup is unavailable. Do not guess IDs.
 
-## 找到风格
+## Find a direction
 
-在配套 skill 的目录中运行（其他 cwd 使用脚本绝对路径）：
+Run from the companion directory, or use an absolute script path:
 
-```text
-python scripts/style_catalog.py --search 水彩
+```sh
+python scripts/style_catalog.py --search watercolor
 python scripts/style_catalog.py --style 063
 python scripts/style_catalog.py --style G03
 ```
 
-- 001–261：原始风格库与图像保留不变。浏览 `gallery/index.html`；扩展入口为 `gallery/extensions.html`。
-- G01–G24：面向游戏生产的原创文字配方，包含可观察特征、适合用途和适配注意点。未附样图的配方不是已验证视觉母版。选定并实际生成/审核后才能作为项目母版。
-- 自定义：用户的参考图或自然语言直接作为方向，不必硬套编号。
-- 混合：明确一个主风格和少量次级特征，例如“G03 的色块与光影 + 063 的剪纸边缘”。分别说明每个来源负责什么；百分比只是意图，不冒充精确混合参数。不要把互相冲突的媒介堆在提示里。
+- **001–261:** preserved original index and images. Browse `gallery/index.html`.
+- **G01–G24:** game-art text recipes with observable traits, uses and adaptation notes. Browse `gallery/extensions.html`. A recipe without a reviewed sample is not a validated master.
+- **Custom:** use the user's reference or description directly.
+- **Mixed:** name one primary style and a few secondary traits. Explain what each contributes, such as cel color blocks with cut-paper edges. Percentages express intent, not precise mixing controls. Avoid contradictory media requirements.
 
-用户要看图比较且授权生成时，用相同主体、镜头、比例做少量风格小样，只改变画法。用户只要文字建议时不生图。用户保留方向选择权时等其选择再扩展；已授权自行选择时主任务选方向并检查首样，不反复请求批准。
+For an authorized visual comparison, keep the subject, camera and proportions constant across a few samples. Do not generate for text-only advice. Respect a reserved direction-selection gate; when selection is delegated, choose and inspect a first sample without repeated approval requests.
 
-## 把画风应用于资产
+## Adapt to the asset
 
-将所选条目分为“视觉语言”和“示例内容”。只继承线条、形状、色块、光影、材质等；原条目可能包含特定人物、动物、道具、幽默主题、白底或大留白，这些不自动覆盖用户主体、透明要求与资产镜头。画廊作者名是索引信息；完整生产提示必须表达本次需要的视觉特征。
+Separate visual traits from example content. Inherit linework, shapes, color, lighting and material treatment. Do not import example characters, props, jokes, white backgrounds or large margins over the user's subject, alpha or camera requirements. Artist names are index labels; a production prompt must describe the needed visual traits.
 
-对于原图库，可运行 `scripts/resolve_reference.py --style 063` 决定参考图路径。默认后端 unknown：不能把 Astra 名称传成图像后端，也不能沿用旧 `gpt-image-2` 配置当成当前能力证明。只有有本次后端证据才指定 `--model`。其 activation_source 是历史路由建议，不是验证报告。用户明确要求按某张图的画风时直接引用那张图，不让旧路由取消该要求。
+For an original style, use `scripts/resolve_reference.py --style 063`. Keep the default backend unknown unless current evidence supports `--model`. Neither Astra nor an old `gpt-image-2` configuration proves the current backend. `activation_source` is a historical routing suggestion, not a validation report. Explicit reference requests override it.
 
-所有使用的本地图片先实际打开；风格参考仅提供视觉语言。用一句隔离约束说明：“此图仅参考线条、笔触、色彩和材质；主体、身份、动作、布局、背景和文字以本次资产约定为准。”身份图、姿势图、布局图分别标注各自作用。工具只支持近期图引用时按实际 schema 处理，不把不存在的路径作为引用。
+Inspect local references before use and label each as identity, style, pose or layout. For a style-only image, specify that it supplies linework, brushwork, color and texture; the current asset brief controls subject, identity, action, layout, background and text. Follow the actual tool schema for recent-image references rather than inventing paths.
 
-生产适配：
-- 透明图标/角色：纹理限制在主体内部，不带纸张底板、地面或烘焙棋盘格；有意的半透明效果单独说明。
-- 像素资源：先约定实际显示像素尺寸；检查像素簇、颜色块、边缘和采样，不能把低清缩图称为像素美术。
-- 动作表：锁定身份、比例、镜头和主要色块，让笔触变化服从动作可读性；格子过密时降低单表帧数。
-- 场景/地块：锁定视角与尺度；只有用户需要平铺时要求并检查接缝，普通背景不强制无缝。
-- UI/对应组件：固定边缘语言、光向、尺寸关系与留字空间；不要生成用户没有要求的伪文字。
+- Transparent characters and icons: keep texture within the subject; do not add paper backdrops, floors or baked checkerboards. Specify intentional translucent effects.
+- Pixel assets: establish display resolution and inspect clusters, color blocks, edges and sampling. A low-resolution thumbnail is not proof of pixel-art quality.
+- Action sheets: lock identity, proportions, camera and major color blocks. Reduce cells when detail becomes unreadable.
+- Scenes and tiles: lock view and scale. Require and inspect seams only when tiling is requested.
+- UI and components: fix edge treatment, light direction, relative dimensions and text space. Do not invent lettering.
 
-## 项目风格记录
+## Record the choice
 
-普通单图用简短生成记录即可。持续生产时保存 `style-lock.json` 或等价文档：style_id / 自定义描述、视觉特征、各参考作用、已检查母版精确路径、目标尺寸、禁止漂移项、candidate 或 user-approved 状态。只在用户明确批准后记 user-approved；主任务视觉通过单独记录。新资产引用母版与这份约定，局部修复保持其他字段不变。
+A single image needs only a concise generation record. For ongoing production, keep `style-lock.json` or equivalent: ID or custom description, visual traits, reference roles, exact reviewed master path, target size, fixed features and candidate/user-approved status. Only explicit user approval permits user-approved status. Record the main task's visual review separately. Reuse this contract for new assets and preserve unaffected constraints during repairs.

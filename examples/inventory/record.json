@@ -5,7 +5,6 @@
     "G03",
     "G10 secondary shape language"
   ],
-  "request": "以 G03 清晰赛璐璐为主，结合 G10 的剪纸造型，成组生成药水、钥匙、宝石与卷轴，统一光照，背景透明。",
   "source": "inventory-sheet.png",
   "size": [
     1254,
@@ -49,10 +48,13 @@
       "128px icons on dark neutral background",
       "128px icons on dark neutral background"
     ],
-    "findings": "四件物品完整分离，红、金、青、象牙色协调，暗色轮廓清楚；实际结果有多面厚涂质感，次级剪纸特征偏弱，不宣称精确风格复现。",
+    "findings": "Four separated items with coordinated red, gold, cyan and ivory colors and clear dark contours. The result has faceted painterly shading and weak secondary cut-paper traits.",
     "status": "demonstration-reviewed",
     "engine_validation": false,
     "user_acceptance": false,
-    "small_size": "四类道具在128像素预览中能分辨；未做真实游戏界面交互测试。"
-  }
+    "small_size": "The four item types are distinguishable at 128 pixels. No in-game UI interaction test was performed."
+  },
+  "visual_findings": "The original and light/dark composites were visually inspected. The result leans toward faceted painterly shading; the secondary cut-paper traits are weak. Technical alpha checks do not establish engine validation or user acceptance.",
+  "request_original": "以 G03 清晰赛璐璐为主，结合 G10 的剪纸造型，成组生成药水、钥匙、宝石与卷轴，统一光照，背景透明。",
+  "request": "Generate a grouped potion, key, gem and scroll using G03 with G10 cut-paper shapes as secondary traits, shared lighting and a transparent background."
 }

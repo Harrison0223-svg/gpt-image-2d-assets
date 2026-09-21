@@ -1,77 +1,91 @@
-# GPT Image 2D 美术与可选风格
+# GPT Image 2D Assets
 
-把“选画风 → 生成资源 → 检查透明与边缘 → 切分交付”连成一个 Codex 工作流。
+Pick a style, make a sprite sheet, and turn it into a GIF. A pair of Codex skills for making and reviewing 2D art with built-in GPT Image.
 
-- 主入口：`gpt-image-2d-assets`。
-- 配套风格库：`handdraw-style-prompter`，保留 001–261 原风格编号，新增 G01–G24 游戏风格配方。
-- 支持自定义参考、主次风格混合、角色/图标/场景/组件、成组动作和特效。
-- 保持主模型负责规划与实际看图审核，视觉生成只走内置 GPT Image。
+## A fox, nine frames
 
-## 核心演示：3×3 连续动作 → GIF
+![Fox run preview](examples/fox-motion/preview.gif)
 
-![九帧狐狸动作](examples/fox-motion/preview.gif)
+This demo started as a 3×3 sheet. We cut it into nine PNGs and assembled a loop at 90 ms per frame. The first attempt repeated similar poses, so we generated a revised sheet. Both versions are included. The gait still needs refinement before use in a game.
 
-九宫格成组生成，按真实尺寸切出 9 帧，以每帧 90 ms 合成 810 ms GIF。保留首次生成和定向修改版本。此图是动作候选预览，步态仍需继续复核，不等于引擎或用户验收通过。
+[Sprite sheet](examples/fox-motion/fox-run-3x3-v2.png) · [Individual frames](examples/fox-motion) · [Timing and crop data](examples/fox-motion/sequence-v2.json)
 
-[3×3 原始动作表](examples/fox-motion/fox-run-3x3-v2.png) · [裁切与时序](examples/fox-motion/sequence-v2.json) · [记录](examples/fox-motion/record.json)
+## Try a different look
 
-## 同一个角色，三种画风
+![The same fox in cel, pixel and watercolor styles](examples/fox-motion/fox-style-comparison.png)
 
-![赛璐璐、像素、水彩](docs/images/04-style-comparison.png)
+Same character, outfit and standing pose: **Clean Cel (G03)**, **Pixel Cluster (G01)** and **Watercolor Ink (G05)**. The pixel version is a visual exploration; it has not been checked as a pixel-perfect game sprite.
 
-固定狐狸身份、服装和站姿，比较 G03 赛璐璐、G01 像素风、G05 水彩墨线。像素风是方向预览，不冒充逐像素制作验收。
+Choose from **261 reference styles**, **24 game-art recipes**, your own reference images, or a mix of specific traits.
 
-[公众号图文介绍](docs/wechat-article.md)
+## What you can make
 
-## 成套道具演示
+- Characters, portraits, expressions and action sheets.
+- Inventory icons, UI pieces and object states.
+- Effects with charge, release, impact and fade stages.
+- Backgrounds and tiles, with seam checks when tiling is needed.
 
-![同组背包道具](examples/inventory/small-preview.png)
+![Inventory icons](examples/inventory/small-preview.png)
 
-> 使用 $gpt-image-2d-assets，以 G03 为主，结合 G10 的剪纸造型，生成药水、钥匙、宝石、卷轴四个背包道具。统一光照，背景透明，并检查小尺寸表现。
+The included tools inspect alpha, crop sheets with explicit coordinates, and assemble timed PNG sequences and GIF previews. They do not draw replacement art or invent missing animation frames.
 
-演示实际得到 1254×1254 RGBA 图片，Alpha 范围 0–255，已检查原图和深浅底色，附四张无损裁图。画面偏多面厚涂，剪纸次级特征较弱；这是流程演示，不是风格精准度、游戏实机或用户验收保证。
+## Install
 
-[原图](examples/inventory/inventory-sheet.png) · [检查记录](examples/inventory/record.json)
+Use a Codex environment with access to built-in GPT Image. Copy both folders into your Codex skills directory, usually `~/.codex/skills/`:
 
-## 安装
+```text
+gpt-image-2d-assets/
+handdraw-style-prompter/
+```
 
-需要可调用内置 GPT Image 的 Codex 环境。生成不需要你另行配置图像 API Key；技术检查工具需要 Python 3 和 Pillow。
+Back up existing folders with these names before updating. You can also give Codex this repository URL and ask it to install both skills.
 
-下载本仓库后，将 `gpt-image-2d-assets` 与 `handdraw-style-prompter` 两个目录并列复制到你的 Codex skills 目录（通常是 `~/.codex/skills/`）。已有同名 skill 时先备份，再按需更新；不要删除原项目。
-
-也可以在 Codex 中说：“请从这个仓库安装 gpt-image-2d-assets 和 handdraw-style-prompter 两个 skill。”
+The crop and inspection tools need Python 3 and Pillow:
 
 ```sh
 python -m pip install Pillow
 ```
 
-## 用法
+## Try it
 
 ```text
-用 063 风格制作一张机械狐狸角色母版，背景透明。
-用 G03 制作同一角色的攻击动作表，检查逐帧和播放效果。
-我还没选画风：比较水彩、剪纸和像素，只给建议，先不生图。
-以我提供的图为风格参考，保持另一张图里的角色身份。
+Use $gpt-image-2d-assets to make a fox courier in G03 style.
+Keep the background transparent.
+
+Make a 3×3 run cycle for this fox, facing right.
+Cut the sheet into frames and make a GIF preview.
+
+Show this same character in cel, pixel and watercolor styles.
+Keep the outfit, camera and pose the same.
+
+Make a matching set of a potion, key, gem and scroll.
+Check how they read at inventory-icon size.
 ```
 
-风格浏览：[原图库](handdraw-style-prompter/gallery/index.html) · [游戏风格配方](handdraw-style-prompter/gallery/extensions.html)。HTML 下载后在本地浏览器打开。G 系列是文字配方，除标明的演示外没有逐项验证样图。
+Start with `gpt-image-2d-assets` for asset production. Use `handdraw-style-prompter` to browse styles or write prompts. A prompt-only request does not trigger image generation.
 
 ```sh
 python handdraw-style-prompter/scripts/style_catalog.py --style G03
-python handdraw-style-prompter/scripts/style_catalog.py --search 水彩
+python handdraw-style-prompter/scripts/style_catalog.py --search watercolor
 python gpt-image-2d-assets/scripts/asset_tools.py inspect examples/inventory/inventory-sheet.png --out review-v1
 ```
 
-## 验证与边界
+The selected main model, including Astra, plans the work and reviews the actual images. Built-in GPT Image handles generation and edits. The coordinator model name does not identify the image backend.
 
-脚本只做测量、裁切、补边、预览，不画替代美术、不伪造动画帧。透明检查与真实看图分别记录；引擎验证和用户验收单列。提示词模式不自动生图；明确的方向选择边界继续保留。
+## Examples and notes
+
+[How the fox demo was made](docs/fox-demo.md) · [Game style recipes](handdraw-style-prompter/gallery/extensions.html) · [Original gallery](handdraw-style-prompter/gallery/index.html)
+
+Download the HTML galleries and open them locally. Original source annotations remain in Chinese; style IDs, English style names and reference images are preserved. The public skill instructions and guides are in English.
+
+Image generation can drift between frames. Alpha checks, visual review, playback, engine testing and user approval are recorded separately. A successful file check does not establish animation quality or game readiness.
 
 ```sh
 python gpt-image-2d-assets/scripts/test_asset_tools.py
 ```
 
-## 来源
+## Credits
 
-原始 261 风格图库与基础索引来自 [yang0/handraw-style](https://github.com/yang0/handraw-style)，本版保留来源并整合 2D 资产工作流、游戏配方与检查工具。上游基线：`70bf51d6b4c301805dd6c083355a2ad18db1023b`。
+The original 261-style library and images come from [yang0/handraw-style](https://github.com/yang0/handraw-style), using baseline `70bf51d6b4c301805dd6c083355a2ad18db1023b`. This repository adds the asset workflow, game-style recipes, inspection tools and demos.
 
-原图库图片和作者索引不因本次整合而成为本项目原创；发布包不为上游材料另行授予许可证，也不保证参考图片可直接作为商业游戏资产使用。
+See [the upstream license](UPSTREAM-LICENSE.txt). The reference images and artist index are credited source material, not original artwork by this project. Their inclusion is not a guarantee of rights to use them as commercial game assets.

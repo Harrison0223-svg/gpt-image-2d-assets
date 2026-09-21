@@ -1,43 +1,41 @@
-# 原生透明与实际边缘
+# Transparency and edges
 
-生成时要求真正透明输出并说明允许哪些效果。普通角色通常不要地板、投影或光晕；柔光特效可以保留半透明。投影需要独立控制时生成独立资源，不能烘进人物导致随跳跃移动。不要把棋盘格当成要画的背景。
+Request real transparent output and specify allowed effects. Ordinary characters usually need no floor, shadow or halo; soft effects may use translucency. Generate separately controlled shadows as separate assets. Do not ask the model to draw a checkerboard.
 
-## 检查顺序
+## Inspect
 
-1. 检查原文件模式及有效 Alpha：RGB/全不透明、全透明空图、正常局部透明是不同结果。RGBA 文件名或查看器棋盘格外观都不是证明。
-2. 查看 Alpha 分布及主体表现，不要求必须出现255：2026-09-12母版最大254且主体多252–253，视觉仍接近不透明。该观察不是允许所有角色整体半透明。
-3. 主 agent 打开黑/白/项目背景合成图；以目标显示尺寸和有问题区域的原始像素裁图检查头发、鞋边、细线、玻璃或柔光。不只看缩略图。
-4. 区分生成残留、后处理破坏、引擎采样问题。原图干净而导入后有边缘时，检查导入、图集留边、采样及混合方式，不盲目重画。
+1. Check original mode and effective alpha. RGB, fully opaque, empty and partly transparent files are different outcomes. An RGBA filename or a viewer checkerboard is not proof.
+2. Inspect alpha distribution alongside appearance. A maximum of 254 can still look nearly opaque; this does not justify making every character translucent.
+3. Open composites on black, white and the project background. Check at display size and inspect original-resolution crops of hair, shoes, fine lines, glass and soft glows.
+4. Distinguish generated residue, post-processing damage and engine sampling. If the source is clean but the imported asset is not, inspect import settings, atlas padding, sampling and blending before redrawing.
 
-白色高光、浅发和柔光可以是合法半透明，不能按颜色一刀切删除。脚本只提供测量，不自动判“脏边”。
+Highlights, pale hair and soft light may be legitimate. Do not remove pixels solely by color. Measurements do not automatically diagnose dirty edges.
 
-## 修复分支
+## Repair
 
-- 原生透明已干净：直接保留，禁止默认再抠一遍。
-- 输出烘焙棋盘格/底色：先按下面的独立透明编辑方法调用内置 GPT Image。修复后重新检查透明和主体是否被改变。
-- 有具体杂边/残留：指出区域和必须保留的结构，定向修复；不承诺图像编辑像素级无损。
-- 仍失败：保留原图与修复版本，按下面的调用对照继续定位；区分单次输出失败与能力不支持。按主入口的重试/停止边界处理，不以阈值抠图、模糊或外部生成替代美术交付。
+- Clean native alpha: retain it; do not automatically remove the background again.
+- Baked background/checkerboard: use a focused built-in GPT Image transparency edit, then check both alpha and subject changes.
+- Specific residue: identify the region and structures to preserve. Do not promise pixel-perfect preservation from a generative edit.
+- Continued failure: retain versions and investigate the call. Distinguish one failed output from unsupported capability. Follow the entrypoint's retry limits; do not substitute threshold masking, blur or another generator for the art task.
 
-## 独立透明编辑的调用细节
+## Focused transparency edit
 
-把动作/结构生产与去背景分成两次任务。透明编辑只传一张明确的编辑目标；本地文件先实际打开，再用 `referenced_image_paths` 指向该文件。不要为了沿用画风又加入母版，也不要在同一次透明编辑要求增强动作、补帧、换材质或重排网格。
+Separate structure/action generation from background removal. Pass one explicit target. Inspect a local file first and use `referenced_image_paths` when supported. Do not add the master just to retain style or combine this pass with new poses, frames, materials or grid changes.
 
-先用简短、单一目的的指令，已验证可用的原句是：
+Start with:
 
 ```text
 Remove the background. Make it transparent.
 ```
 
-需要强调保留内容时只加必要的一句，例如保持全部角色和布局。不要默认堆叠一长串 RGBA、禁止棋盘格、颜色、网格及动作限制；长提示不等于底层透明参数。上句是成功实例，不是保证每次成功的口令。
+Add only a necessary preservation constraint. Long lists of RGBA, color, grid and action requirements do not enable hidden transparency parameters. This wording has worked in local trials; it is not a guarantee.
 
-失败后检查实际目标是否正确、是否混入其它编辑要求，以及返回的原始文件；用一个有代表性的裁图做调用对照，再把验证的方法用于完整动作表。裁图仅用于定位问题，不能把逐张重画当作默认批量方案。优先让主 agent 亲自复验，不能只根据子 agent 文字报告就判定能力缺失。若需继续调整，一次改变一个有依据的因素并记录结果；确认额度或权限问题仍按主入口边界处理。
+After failure, verify the target, unrelated requirements and actual returned file. Test a representative crop to isolate the issue before applying a demonstrated method to the full sheet. Diagnostic crops are not a default plan to redraw every frame. The main task should inspect results instead of inferring missing capability from a worker's report. Change one justified factor at a time; stop on confirmed quota or permission failures.
 
-整表仍失败而小样成功时，可按原表已有的连续组拆成横条，例如保留同一个命中或破盾序列的全部4帧，再对该横条做单独透明编辑。这样保留组内关系，避免混合多类特效和复杂背景影响调用。每条仍需检查重采样、帧数、布局及 Alpha；不能自动等分新输出，也不能把不同阶段逐帧重画当作同一序列。
+If a small group succeeds but the full sheet fails, split existing continuous groups into strips, keeping all related phases together. Inspect each edited strip's resampling, count, layout and alpha. Remeasure new outputs rather than assuming the original grid still applies.
 
-成功判据仍是实际文件有有效 Alpha，且边缘、身份、画风、尺寸和布局可用。编辑可能重采样或改变画风；Alpha 合格不自动通过美术。以工具返回的新尺寸重测裁框和锚点，保留原图，不把生成编辑宣称为像素级无损。
+Acceptance requires useful alpha plus usable edges, identity, style, dimensions and layout. Alpha success alone is not visual acceptance. Retain originals and measure the returned dimensions, crops and anchors.
 
-API 与内置工具分开：官方 API 的 `background: "transparent"` 与 PNG/WebP 是 API 参数；只有当前内置 schema 公开该字段时才可直接设置。未公开时使用上面的自然语言编辑，不能编造调用参数或擅自切到计费 API。
+The API and built-in tool are separate interfaces. Use `background` or similar parameters only when exposed by the current schema. Otherwise use supported natural-language editing; do not invent fields or switch to a billed API without authorization. Check current official documentation when answering capability questions.
 
-官方依据：[ChatGPT Images](https://help.openai.com/en/articles/11084440-images-in-chatgpt) 说明可按指令生成透明背景；[内置图像编辑指南](https://learn.chatgpt.com/docs/image-generation) 建议简短具体指令及单项修订。可变能力与实测例子见 [能力记录](capabilities.md)。
-
-GIF 只有受限的颜色和透明表达。RGBA PNG 是源资源；GIF 合成在已注明的固定底色上供动作审核，不用 GIF 判断原始半透明质量。
+GIF has limited color and transparency support. RGBA PNG is the source asset. A GIF on a declared background is for motion review, not proof of source-alpha quality.

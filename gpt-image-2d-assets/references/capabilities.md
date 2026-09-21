@@ -1,9 +1,9 @@
-# 工具能力与验证边界
+# Tool capabilities and validation
 
-以当前内置工具 schema 为准。协调模型名称不等于图像后端名称；提示文字不等于已启用参数。未公开的 model、seed、quality、background、FPS 不得编造。
+Use the current built-in tool schema. The coordinator name does not identify the image backend, and prompt wording does not enable a tool parameter. Do not invent unexposed model, seed, quality, background or FPS fields.
 
-当前发布包中的演示使用内置 GPT Image。透明文件必须检查实际 Alpha，并打开深浅底色预览；检查通过不代表引擎表现或用户验收通过。见仓库 `examples/inventory/record.json`。
+The bundled demos used built-in GPT Image. Inspect actual alpha and light/dark background composites for transparent files. A file check does not establish engine behavior or user acceptance; see `examples/inventory/record.json` in the repository.
 
-同图成组可以便于比较风格与身份，但不保证精确网格、动作连贯或透明一次成功。透明编辑可优先尝试单张引用和简短指令：`Remove the background. Make it transparent.`，结果仍需复核。
+Grouped generation makes identity and style easier to compare but does not guarantee an exact grid, coherent motion or transparency. For a transparency edit, try one target image with a focused instruction such as `Remove the background. Make it transparent.` Inspect the result.
 
-维护时区分官方声明、当前工具公开信息与本地实测，不把历史观察写成永久限制。公开版本不包含私有项目路径或历史项目记录。
+Distinguish official claims, the current tool schema and local observations. Historical findings are not permanent limitations. Keep private project paths and history out of the public distribution.

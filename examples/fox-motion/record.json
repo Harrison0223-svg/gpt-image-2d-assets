@@ -24,7 +24,7 @@
     "G05"
   ],
   "status": "demonstration-candidate",
-  "visual_findings": "狐狸身份、服装和侧视方向保持可辨认；首版相近姿势较多，已生成步态修订版。步态仍需游戏目标尺寸及实机复核，不宣称商业动画验收通过。像素风图是视觉方向展示，未证明逐像素制作规范合格。",
+  "visual_findings": "The fox identity, outfit and side view remain recognizable. The first sheet repeated similar poses; a revised gait sheet was generated. Motion still needs target-size and in-engine review. The pixel-style image is a visual exploration, not pixel-perfect acceptance.",
   "engine_validation": false,
   "user_acceptance": false
 }

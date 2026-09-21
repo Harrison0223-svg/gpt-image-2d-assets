@@ -1,43 +1,36 @@
-# Luna 批量生产，主 agent 审核
+# Delegated batches and main-task review
 
-仅在当前用户或适用指令明确启用委派且有独立任务时使用本分支；读取本文件本身不构成委派授权。启用后，适合批量交接的资源默认交由 `gpt-5.6-luna` 子 agent 生产，主 agent 保持当前模型做规划、整合与审核。用当前环境的子 agent 工具，不创建用户侧独立任务来代替委派。主 agent 必须具备实际图像审核能力。
+Use this branch only when the user or applicable instructions explicitly enable delegation and independent work exists. Reading this file does not grant permission. When enabled, use `gpt-5.6-luna` by default for suitable batches while retaining the selected main model for planning, integration and actual image review. Use subagents, not user-facing independent tasks. The main task must be able to inspect images.
 
-## 分工
+## Ownership
 
-给 worker 有边界的资源清单、文件所有权和输入参考。声明它不是仓库唯一工作者，不覆盖或回退其他人的修改。不同角色/特效包可并行；同一角色的依赖帧共享主 agent 已检查的母版，避免多个 worker 各自重造身份。
+Assign a bounded asset list, file ownership and references. Tell workers they share the codebase and must not overwrite or revert others' work. Independent characters or effect packs may run in parallel. Dependent frames share an inspected master.
 
-同一张成组资产表（常用 16 格）、连续动作/法术/特效序列或一组对应状态由一个 worker 负责，不将十六格分给十六个独立生成任务。交接必须列出逐格内容、时间/状态/组件关系、分组、共同母版与局部修复范围；独立角色或独立组件包才适合并行。每次生成后立即保存记录并检查新消息，再决定下一次调用；不要用长循环连续提交多次生成而错过停止或修订指令。
+One worker owns a related sheet, continuous action/effect or corresponding state set. Do not split a 16-cell sheet across 16 independent generators. State cell contents, temporal/state/component relationships, grouping, shared master and repair scope. Save each call's record and check messages before the next call; avoid long unattended generation loops.
 
-下发足够自包含的上下文：
+A handoff should include:
 
 ```text
-使用内置 GPT Image，按附件角色/风格/动作的明确角色生产指定资源。
-只写指定版本目录；保留精确工具输出，不覆盖母版。
-资源清单、动作阶段、画布/目标尺寸、允许的透明效果、参考路径如下……
-本批最多调用次数/允许的针对性修复范围如下……（按任务规模决定）
-先打开参考图。保存原图、确切提示、引用路径与作用、实际结果路径和失败状态。
-不运行外部 API，不自行替换画风，不以代码补画，不自行宣布验收。
-遇确认额度/权限问题停止相关调用；将结果通过子 agent 消息交回主 agent。
-你不是唯一工作者，不改其他目录。
+Use built-in GPT Image and the stated identity/style/pose roles of each reference.
+Write only to the assigned version directory; retain exact outputs and masters.
+Asset list, phases, canvas/display size, allowed alpha effects and references: ...
+Call budget and targeted repair scope, proportionate to this batch: ...
+Inspect references first. Save originals, exact prompts, reference roles, output paths and failures.
+Do not use external generators, change the style, paint with code or grant acceptance.
+Stop affected calls on confirmed quota or permission failures; return results to the main task.
+You are not alone in the codebase. Do not modify other directories.
 ```
 
-生成路径可用时及时交回，主 agent 可以并行检查和准备组装。以当前协作工具返回的 agent ID 为准，不在 skill 中写死会话或线程ID。
+Return usable output paths promptly so review can proceed. Use current agent IDs, never hard-coded sessions.
 
-## 最少记录
+## Records
 
-按项目规模用 JSON 或简明文档，字段不必强制固定schema，但以下事实要能追溯：
+Use concise JSON or prose that tracks asset ID, purpose, worker, planned/generated/failed status, full prompt, reference roles and paths, exact original and copied outputs, actual tool and known parameters, parent/version, measurements and the main task's inspection findings. Mark unreported fields unknown. Record hashes or timing when needed for copy checks or comparison. A worker's timing is not an independent benchmark. No original file means no generated status.
 
-- asset_id、用途、worker、状态（planned/generated/failed）；
-- 完整提示、参考角色与路径、明确的原始输出路径、项目副本；
-- 实际工具名称、可证实的型号/参数；没有返回的字段写unknown，不凭计划补全；
-- 修改版本与父资源、测量文件、主 agent 实际打开的审核证据及结论。
+## Review and repairs
 
-耗时/哈希在做对比或验证复制时记录；不要把worker自报耗时当独立性能基准。原图不存在就不能标为已生成。
+The main task inspects masters, contact sheets covering every delivered item and actual playback. Enlarge complex edges, repairs and suspicious deviations. Open originals when thumbnails are insufficient. A worker report or complete manifest is not visual evidence.
 
-## 审核与扩批
+Report specific defects, affected assets and invariant features. Delegate only the required repair and inspect it again. Existing direction approval remains valid; do not invent batch approval gates.
 
-主 agent 检查关键母版、每个批次的实际接触表和动作播放。对复杂轮廓、修复帧、可疑偏差放大查看；不能只相信worker文字报告或清单齐全。接触表也须覆盖全部交付项，缩略图看不清时打开原图。
-
-反馈用具体缺陷：例如“第5帧拳头被裁掉”“鞋边白色残留”“腰带变样”，并说明不可改变项。只派发受影响资产的修复，修复后主 agent 复核。用户已有方向批准继续有效，不凭空增加每批批准流程。
-
-子 agent 不可用或不支持内置生图时，如实报告分工限制；不静默换模型/供应商。在已授权的生产范围内由主 agent 直接继续；若用户明确要求必须委派则说明限制，继续可执行的整理与审核。
+If subagents or built-in image generation are unavailable, state the limitation. Do not silently switch models or providers. Continue directly within authorized scope unless the user requires delegation, in which case explain the blocker and continue possible organization and review.

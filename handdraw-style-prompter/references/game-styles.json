@@ -3,459 +3,600 @@
   "styles": [
     {
       "id": "G01",
-      "name": "精确像素簇",
+      "name": "Pixel Cluster",
       "english_name": "Pixel Cluster",
       "tags": [
         "像素",
         "pixel",
-        "复古"
+        "复古",
+        "cluster",
+        "characters",
+        "icons",
+        "tiles"
       ],
       "suitable_for": [
-        "角色",
-        "图标",
-        "地块"
+        "characters",
+        "icons",
+        "tiles"
       ],
-      "traits": "有限色阶，清楚像素簇，硬边轮廓，节制抖色",
-      "adaptation": "先确定目标像素尺寸，检查孤立噪点与非整数采样",
+      "traits": "Limited color ramps, clear pixel clusters, hard silhouettes and restrained dithering.",
+      "adaptation": "Set the target pixel size first. Check stray pixels and non-integer sampling.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "精确像素簇"
     },
     {
       "id": "G02",
-      "name": "高色彩街机像素",
+      "name": "Arcade Pixel",
       "english_name": "Arcade Pixel",
       "tags": [
         "像素",
         "街机",
-        "科幻"
+        "科幻",
+        "arcade",
+        "pixel",
+        "characters",
+        "enemies",
+        "explosions"
       ],
       "suitable_for": [
-        "角色",
-        "敌人",
-        "爆炸"
+        "characters",
+        "enemies",
+        "explosions"
       ],
-      "traits": "紧凑明暗色阶，金属高光块，鲜明冷暖对照，轮廓锐利",
-      "adaptation": "复杂纹理不能吞掉动作轮廓",
+      "traits": "Compact shading ramps, metallic highlight blocks, strong warm/cool contrast and sharp silhouettes.",
+      "adaptation": "Keep complex texture from obscuring action silhouettes.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "高色彩街机像素"
     },
     {
       "id": "G03",
-      "name": "清晰赛璐璐",
+      "name": "Clean Cel",
       "english_name": "Clean Cel",
       "tags": [
         "赛璐璐",
         "动漫",
-        "cel"
+        "cel",
+        "clean",
+        "characters",
+        "props",
+        "animation"
       ],
       "suitable_for": [
-        "角色",
-        "道具",
-        "动作"
+        "characters",
+        "props",
+        "animation"
       ],
-      "traits": "干净可变粗细轮廓，两到三级硬边明暗，大色块，少量高光",
-      "adaptation": "保持每帧阴影分区与光向一致",
+      "traits": "Clean variable-width outlines, two or three hard shading levels, broad color areas and sparse highlights.",
+      "adaptation": "Keep shadow shapes and light direction consistent between frames.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "清晰赛璐璐"
     },
     {
       "id": "G04",
-      "name": "厚涂绘本",
+      "name": "Gouache Storybook",
       "english_name": "Gouache Storybook",
       "tags": [
         "厚涂",
         "水粉",
-        "绘本"
+        "绘本",
+        "gouache",
+        "storybook",
+        "characters",
+        "scenes",
+        "cards"
       ],
       "suitable_for": [
-        "角色",
-        "场景",
-        "卡牌"
+        "characters",
+        "scenes",
+        "cards"
       ],
-      "traits": "不透明水粉块，柔和颗粒，圆润形状，有限暖色",
-      "adaptation": "透明资产不继承纸底，缩小后仍有清楚外轮廓",
+      "traits": "Opaque gouache blocks, soft grain, rounded forms and a limited warm palette.",
+      "adaptation": "Do not carry a paper backdrop into transparent assets. Keep silhouettes readable when reduced.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "厚涂绘本"
     },
     {
       "id": "G05",
-      "name": "轻水彩线稿",
+      "name": "Watercolor Ink",
       "english_name": "Watercolor Ink",
       "tags": [
         "水彩",
         "线稿",
-        "watercolor"
+        "watercolor",
+        "ink",
+        "portraits",
+        "props",
+        "illustration"
       ],
       "suitable_for": [
-        "头像",
-        "道具",
-        "插画"
+        "portraits",
+        "props",
+        "illustration"
       ],
-      "traits": "细墨线，透明叠色，局部水痕，稀疏颜料边缘",
-      "adaptation": "控制主体透明度，纸白不能误当透明",
+      "traits": "Fine ink lines, translucent washes, local blooms and sparse pigment edges.",
+      "adaptation": "Control subject opacity; paper white is not transparency.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "轻水彩线稿"
     },
     {
       "id": "G06",
-      "name": "干笔水墨",
+      "name": "Dry Brush Ink",
       "english_name": "Dry Brush Ink",
       "tags": [
         "水墨",
         "国风",
-        "墨"
+        "墨",
+        "dry",
+        "brush",
+        "ink",
+        "characters",
+        "spells",
+        "scenes"
       ],
       "suitable_for": [
-        "角色",
-        "法术",
-        "场景"
+        "characters",
+        "spells",
+        "scenes"
       ],
-      "traits": "有力墨块，干笔飞白，淡墨层次，少量朱红点色",
-      "adaptation": "飞白与烟雾边缘需在深浅底上检查",
+      "traits": "Bold ink masses, dry-brush gaps, pale ink layers and sparse vermilion accents.",
+      "adaptation": "Inspect broken brush edges and smoke on light and dark backgrounds.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "干笔水墨"
     },
     {
       "id": "G07",
-      "name": "工笔矿物色",
+      "name": "Mineral Fine Line",
       "english_name": "Mineral Fine Line",
       "tags": [
         "国风",
         "工笔",
-        "岩彩"
-      ],
-      "suitable_for": [
-        "立绘",
-        "道具",
+        "岩彩",
+        "mineral",
+        "fine",
+        "line",
+        "character art",
+        "props",
         "UI"
       ],
-      "traits": "细劲描线，矿物色平涂，层次克制，装饰纹样有秩序",
-      "adaptation": "细纹优先用于大图，UI缩放时删减",
+      "suitable_for": [
+        "character art",
+        "props",
+        "UI"
+      ],
+      "traits": "Fine controlled outlines, flat mineral colors, restrained layering and orderly ornament.",
+      "adaptation": "Reserve fine patterns for large images and simplify them at UI scale.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "工笔矿物色"
     },
     {
       "id": "G08",
-      "name": "木刻版画",
+      "name": "Woodcut",
       "english_name": "Woodcut",
       "tags": [
         "木刻",
         "版画",
-        "黑白"
+        "黑白",
+        "woodcut",
+        "monsters",
+        "cards",
+        "icons"
       ],
       "suitable_for": [
-        "卡牌",
-        "怪物",
-        "图标"
+        "monsters",
+        "cards",
+        "icons"
       ],
-      "traits": "粗壮黑白形，刀刻排线，少量专色，斜切边缘",
-      "adaptation": "排线密度不能造成缩放摩尔纹",
+      "traits": "Strong black-and-white masses, carved hatching, few spot colors and angular edges.",
+      "adaptation": "Avoid line densities that create moire at the target size.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "木刻版画"
     },
     {
       "id": "G09",
-      "name": "铜版蚀刻",
+      "name": "Etching",
       "english_name": "Etching",
       "tags": [
         "蚀刻",
         "排线",
-        "古典"
+        "古典",
+        "etching",
+        "equipment",
+        "items",
+        "illustration"
       ],
       "suitable_for": [
-        "道具",
-        "卡牌",
-        "插画"
+        "equipment",
+        "items",
+        "illustration"
       ],
-      "traits": "细密交叉排线，尖细边缘，局部留白，单色阶层",
-      "adaptation": "小图标减密，保住对象轮廓",
+      "traits": "Fine crosshatching, delicate edges, local white space and monochrome foundations.",
+      "adaptation": "Reduce hatching density in small images while retaining silhouette.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "铜版蚀刻"
     },
     {
       "id": "G10",
-      "name": "剪纸拼贴",
+      "name": "Cut Paper",
       "english_name": "Cut Paper",
       "tags": [
         "剪纸",
         "拼贴",
-        "几何"
-      ],
-      "suitable_for": [
-        "角色",
-        "图标",
+        "几何",
+        "cut",
+        "paper",
+        "characters",
+        "icons",
         "UI"
       ],
-      "traits": "切纸式边缘，叠层色块，简练几何，轻微手工不齐",
-      "adaptation": "不把层间阴影画成实体背景",
+      "suitable_for": [
+        "characters",
+        "icons",
+        "UI"
+      ],
+      "traits": "Scissor-cut edges, flat color pieces, layered silhouettes and slight handmade irregularity.",
+      "adaptation": "Do not turn shadows between layers into a solid backdrop.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "剪纸拼贴"
     },
     {
       "id": "G11",
-      "name": "双色孔版印刷",
+      "name": "Risograph",
       "english_name": "Risograph",
       "tags": [
         "孔版",
         "印刷",
-        "riso"
+        "riso",
+        "risograph",
+        "cards",
+        "posters",
+        "backgrounds"
       ],
       "suitable_for": [
-        "海报",
-        "卡牌",
-        "背景"
+        "cards",
+        "posters",
+        "backgrounds"
       ],
-      "traits": "双色或三色套印，受控错版，颗粒墨点，平面造型",
-      "adaptation": "错版不可破坏UI定位或动作锚点",
+      "traits": "Two- or three-color overprinting, controlled misregistration, grainy ink and flat shapes.",
+      "adaptation": "Misregistration must not disrupt UI positioning or animation anchors.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "双色孔版印刷"
     },
     {
       "id": "G12",
-      "name": "布贴刺绣",
+      "name": "Fabric Applique",
       "english_name": "Fabric Applique",
       "tags": [
         "布料",
         "刺绣",
-        "织物"
-      ],
-      "suitable_for": [
-        "道具",
-        "角色",
+        "织物",
+        "fabric",
+        "applique",
+        "items",
+        "characters",
         "UI"
       ],
-      "traits": "布片大形，缝线边缘，短绒纹理，温暖材质",
-      "adaptation": "先读大形，缝线不能变成随机噪点",
+      "suitable_for": [
+        "items",
+        "characters",
+        "UI"
+      ],
+      "traits": "Fabric-piece silhouettes, stitched borders, soft fibers and warm palettes.",
+      "adaptation": "Keep shapes stable and prevent stitches from becoming random noise.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "布贴刺绣"
     },
     {
       "id": "G13",
-      "name": "软陶定格质感",
+      "name": "Clay Sprite",
       "english_name": "Clay Sprite",
       "tags": [
         "软陶",
         "黏土",
-        "定格"
+        "定格",
+        "clay",
+        "sprite",
+        "characters",
+        "props",
+        "icons"
       ],
       "suitable_for": [
-        "角色",
-        "道具",
-        "图标"
+        "characters",
+        "props",
+        "icons"
       ],
-      "traits": "圆润实体，哑光软陶，压痕克制，柔和固定光照",
-      "adaptation": "交付仍是2D栅格图，不能声称可编辑3D",
+      "traits": "Rounded volumes, matte clay, restrained impressions and soft fixed lighting.",
+      "adaptation": "The output remains a 2D raster image, not editable 3D.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "软陶定格质感"
     },
     {
       "id": "G14",
-      "name": "搪瓷玩具质感",
+      "name": "Enamel Toy",
       "english_name": "Enamel Toy",
       "tags": [
         "搪瓷",
         "玩具",
-        "金属"
+        "金属",
+        "enamel",
+        "toy",
+        "icons",
+        "items",
+        "equipment"
       ],
       "suitable_for": [
-        "图标",
-        "道具",
-        "组件"
+        "icons",
+        "items",
+        "equipment"
       ],
-      "traits": "饱满轮廓，光洁釉面，集中高光，清楚材质分界",
-      "adaptation": "保持高光方向，避免高光冲掉轮廓",
+      "traits": "Rounded contours, smooth enamel, concentrated highlights and clear material boundaries.",
+      "adaptation": "Maintain highlight direction without blowing out the silhouette.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "搪瓷玩具质感"
     },
     {
       "id": "G15",
-      "name": "硬边矢量感",
+      "name": "Flat Vector Look",
       "english_name": "Flat Vector Look",
       "tags": [
         "扁平",
         "矢量",
-        "几何"
+        "几何",
+        "flat",
+        "vector",
+        "look",
+        "icons",
+        "UI",
+        "markers"
       ],
       "suitable_for": [
-        "图标",
+        "icons",
         "UI",
-        "组件"
+        "markers"
       ],
-      "traits": "精确几何轮廓，纯净填色，少量层级，统一圆角",
-      "adaptation": "生成物是栅格图，不宣称SVG矢量交付",
+      "traits": "Precise geometry, clean flat fills, few layers and consistent corner radii.",
+      "adaptation": "The output is raster art, not SVG vector paths.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "硬边矢量感"
     },
     {
       "id": "G16",
-      "name": "装饰线描",
+      "name": "Decorative Line",
       "english_name": "Decorative Line",
       "tags": [
         "装饰",
         "线描",
-        "花纹"
+        "花纹",
+        "decorative",
+        "line",
+        "UI",
+        "borders",
+        "equipment"
       ],
       "suitable_for": [
         "UI",
-        "边框",
-        "卡牌"
+        "borders",
+        "equipment"
       ],
-      "traits": "连续优雅曲线，重复纹样，细粗节奏，有限金色点缀",
-      "adaptation": "留出内容区，组件连接处单独检查",
+      "traits": "Continuous ornamental lines, repeated motifs, varied line weight and limited gold accents.",
+      "adaptation": "Keep decoration from impairing text contrast or hit-area readability.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "装饰线描"
     },
     {
       "id": "G17",
-      "name": "复古橡皮管动画",
+      "name": "Rubber Hose",
       "english_name": "Rubber Hose",
       "tags": [
         "复古",
         "动画",
-        "卡通"
+        "卡通",
+        "rubber",
+        "hose",
+        "characters",
+        "animation",
+        "expressions"
       ],
       "suitable_for": [
-        "角色",
-        "动作",
-        "表情"
+        "characters",
+        "animation",
+        "expressions"
       ],
-      "traits": "弹性弧线四肢，清楚黑白块，圆手套形，简洁面部",
-      "adaptation": "动作关节弹性不能变成身份或肢体数量漂移",
+      "traits": "Elastic curved limbs, simple black-and-white masses, rounded silhouettes and exaggerated faces.",
+      "adaptation": "Distinguish intentional elastic joints from identity or limb-count drift.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "复古橡皮管动画"
     },
     {
       "id": "G18",
-      "name": "漫画网点",
+      "name": "Halftone Comic",
       "english_name": "Halftone Comic",
       "tags": [
         "漫画",
         "网点",
-        "美漫"
+        "美漫",
+        "halftone",
+        "comic",
+        "characters",
+        "effects",
+        "cards"
       ],
       "suitable_for": [
-        "角色",
-        "特效",
-        "卡牌"
+        "characters",
+        "effects",
+        "cards"
       ],
-      "traits": "有力外轮廓，平面阴影，受控网点，动势线",
-      "adaptation": "文字需按用户要求，动作线不要串到邻格",
+      "traits": "Strong silhouettes, flat shadows, controlled halftones and motion lines.",
+      "adaptation": "Add lettering only when requested. Keep action lines out of neighboring cells.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "漫画网点"
     },
     {
       "id": "G19",
-      "name": "铅笔彩铅",
+      "name": "Colored Pencil",
       "english_name": "Colored Pencil",
       "tags": [
         "彩铅",
         "铅笔",
-        "手绘"
+        "手绘",
+        "colored",
+        "pencil",
+        "portraits",
+        "props",
+        "illustration"
       ],
       "suitable_for": [
-        "头像",
-        "道具",
-        "插画"
+        "portraits",
+        "props",
+        "illustration"
       ],
-      "traits": "可见铅笔排线，轻微叠色，柔和边缘，纸上笔压节奏",
-      "adaptation": "透明主体不附纸矩形，细线检查缩放损失",
+      "traits": "Visible pencil hatching, light color layering, soft edges and varied pressure.",
+      "adaptation": "Do not attach a paper rectangle to transparent subjects. Check thin-line loss when scaled.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "铅笔彩铅"
     },
     {
       "id": "G20",
-      "name": "粉彩梦境",
+      "name": "Soft Pastel",
       "english_name": "Soft Pastel",
       "tags": [
         "粉彩",
         "梦幻",
-        "柔和"
+        "柔和",
+        "soft",
+        "pastel",
+        "backgrounds",
+        "portraits",
+        "spells"
       ],
       "suitable_for": [
-        "背景",
-        "肖像",
-        "法术"
+        "backgrounds",
+        "portraits",
+        "spells"
       ],
-      "traits": "柔粉色层，粉末状局部边缘，大面积柔和体积，少量锐边焦点",
-      "adaptation": "避免整图模糊；交互对象需要明确边缘",
+      "traits": "Soft pastel layers, locally powdery edges, broad gentle volumes and a few sharp focal edges.",
+      "adaptation": "Avoid uniform blur; interactive objects need distinct edges.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "粉彩梦境"
     },
     {
       "id": "G21",
-      "name": "暗色哥特绘画",
+      "name": "Gothic Painterly",
       "english_name": "Gothic Painterly",
       "tags": [
         "哥特",
         "暗黑",
-        "厚涂"
+        "厚涂",
+        "gothic",
+        "painterly",
+        "monsters",
+        "scenes",
+        "cards"
       ],
       "suitable_for": [
-        "怪物",
-        "场景",
-        "卡牌"
+        "monsters",
+        "scenes",
+        "cards"
       ],
-      "traits": "拉长形状，冷暗底色，集中的暖光，节制破损材质",
-      "adaptation": "暗部仍要有层级和可读轮廓",
+      "traits": "Elongated shapes, cool dark foundations, concentrated warm light and restrained weathering.",
+      "adaptation": "Retain value separation and readable silhouettes in dark areas.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "暗色哥特绘画"
     },
     {
       "id": "G22",
-      "name": "等距手绘",
+      "name": "Isometric Painted",
       "english_name": "Isometric Painted",
       "tags": [
         "等距",
         "建筑",
-        "地块"
+        "地块",
+        "isometric",
+        "painted",
+        "buildings",
+        "props",
+        "tiles"
       ],
       "suitable_for": [
-        "建筑",
-        "道具",
-        "地块"
+        "buildings",
+        "props",
+        "tiles"
       ],
-      "traits": "统一等距投影，清楚顶面与侧面，手绘色块，固定光向",
-      "adaptation": "视角与底面尺寸必须一致，要求平铺才检查接缝",
+      "traits": "Consistent isometric projection, distinct top and side planes, painted color blocks and fixed lighting.",
+      "adaptation": "Keep camera and footprint sizes consistent. Check seams when tiling is required.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "等距手绘"
     },
     {
       "id": "G23",
-      "name": "霓虹图形",
+      "name": "Neon Graphic",
       "english_name": "Neon Graphic",
       "tags": [
         "霓虹",
         "科幻",
-        "发光"
-      ],
-      "suitable_for": [
-        "特效",
-        "图标",
+        "发光",
+        "neon",
+        "graphic",
+        "effects",
+        "icons",
         "UI"
       ],
-      "traits": "深色实体骨架，高饱和边缘光，窄范围辉光，几何节奏",
-      "adaptation": "深底预览不能代替真实Alpha，辉光保留渐变",
+      "suitable_for": [
+        "effects",
+        "icons",
+        "UI"
+      ],
+      "traits": "Dark solid structures, saturated rim light, narrow glows and geometric rhythm.",
+      "adaptation": "A dark preview does not prove alpha. Preserve glow gradients.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "霓虹图形"
     },
     {
       "id": "G24",
-      "name": "平涂民艺",
+      "name": "Folk Flat",
       "english_name": "Folk Flat",
       "tags": [
         "民艺",
         "装饰",
-        "平涂"
+        "平涂",
+        "folk",
+        "flat",
+        "characters",
+        "cards",
+        "scenes"
       ],
       "suitable_for": [
-        "角色",
-        "卡牌",
-        "场景"
+        "characters",
+        "cards",
+        "scenes"
       ],
-      "traits": "朴拙形状，鲜明有限配色，秩序化植物纹样，手绘边缘",
-      "adaptation": "纹样服从主体，不能自动加入未要求的植物",
+      "traits": "Naive shapes, a vivid limited palette, ordered botanical motifs and handmade edges.",
+      "adaptation": "Keep patterns subordinate to the subject. Do not add unrequested plants.",
       "preview_status": "text-recipe-unvalidated",
-      "reference_path": null
+      "reference_path": null,
+      "name_zh": "平涂民艺"
     }
   ]
 }
