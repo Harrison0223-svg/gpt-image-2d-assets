@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "styles": [
+    {
+      "id": "G01",
+      "name": "精确像素簇",
+      "english_name": "Pixel Cluster",
+      "tags": [
+        "像素",
+        "pixel",
+        "复古"
+      ],
+      "suitable_for": [
+        "角色",
+        "图标",
+        "地块"
+      ],
+      "traits": "有限色阶，清楚像素簇，硬边轮廓，节制抖色",
+      "adaptation": "先确定目标像素尺寸，检查孤立噪点与非整数采样",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G02",
+      "name": "高色彩街机像素",
+      "english_name": "Arcade Pixel",
+      "tags": [
+        "像素",
+        "街机",
+        "科幻"
+      ],
+      "suitable_for": [
+        "角色",
+        "敌人",
+        "爆炸"
+      ],
+      "traits": "紧凑明暗色阶，金属高光块，鲜明冷暖对照，轮廓锐利",
+      "adaptation": "复杂纹理不能吞掉动作轮廓",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G03",
+      "name": "清晰赛璐璐",
+      "english_name": "Clean Cel",
+      "tags": [
+        "赛璐璐",
+        "动漫",
+        "cel"
+      ],
+      "suitable_for": [
+        "角色",
+        "道具",
+        "动作"
+      ],
+      "traits": "干净可变粗细轮廓，两到三级硬边明暗，大色块，少量高光",
+      "adaptation": "保持每帧阴影分区与光向一致",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G04",
+      "name": "厚涂绘本",
+      "english_name": "Gouache Storybook",
+      "tags": [
+        "厚涂",
+        "水粉",
+        "绘本"
+      ],
+      "suitable_for": [
+        "角色",
+        "场景",
+        "卡牌"
+      ],
+      "traits": "不透明水粉块，柔和颗粒，圆润形状，有限暖色",
+      "adaptation": "透明资产不继承纸底，缩小后仍有清楚外轮廓",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G05",
+      "name": "轻水彩线稿",
+      "english_name": "Watercolor Ink",
+      "tags": [
+        "水彩",
+        "线稿",
+        "watercolor"
+      ],
+      "suitable_for": [
+        "头像",
+        "道具",
+        "插画"
+      ],
+      "traits": "细墨线，透明叠色，局部水痕，稀疏颜料边缘",
+      "adaptation": "控制主体透明度，纸白不能误当透明",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G06",
+      "name": "干笔水墨",
+      "english_name": "Dry Brush Ink",
+      "tags": [
+        "水墨",
+        "国风",
+        "墨"
+      ],
+      "suitable_for": [
+        "角色",
+        "法术",
+        "场景"
+      ],
+      "traits": "有力墨块，干笔飞白，淡墨层次，少量朱红点色",
+      "adaptation": "飞白与烟雾边缘需在深浅底上检查",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G07",
+      "name": "工笔矿物色",
+      "english_name": "Mineral Fine Line",
+      "tags": [
+        "国风",
+        "工笔",
+        "岩彩"
+      ],
+      "suitable_for": [
+        "立绘",
+        "道具",
+        "UI"
+      ],
+      "traits": "细劲描线，矿物色平涂，层次克制，装饰纹样有秩序",
+      "adaptation": "细纹优先用于大图，UI缩放时删减",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G08",
+      "name": "木刻版画",
+      "english_name": "Woodcut",
+      "tags": [
+        "木刻",
+        "版画",
+        "黑白"
+      ],
+      "suitable_for": [
+        "卡牌",
+        "怪物",
+        "图标"
+      ],
+      "traits": "粗壮黑白形，刀刻排线，少量专色，斜切边缘",
+      "adaptation": "排线密度不能造成缩放摩尔纹",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G09",
+      "name": "铜版蚀刻",
+      "english_name": "Etching",
+      "tags": [
+        "蚀刻",
+        "排线",
+        "古典"
+      ],
+      "suitable_for": [
+        "道具",
+        "卡牌",
+        "插画"
+      ],
+      "traits": "细密交叉排线，尖细边缘，局部留白，单色阶层",
+      "adaptation": "小图标减密，保住对象轮廓",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G10",
+      "name": "剪纸拼贴",
+      "english_name": "Cut Paper",
+      "tags": [
+        "剪纸",
+        "拼贴",
+        "几何"
+      ],
+      "suitable_for": [
+        "角色",
+        "图标",
+        "UI"
+      ],
+      "traits": "切纸式边缘，叠层色块，简练几何，轻微手工不齐",
+      "adaptation": "不把层间阴影画成实体背景",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G11",
+      "name": "双色孔版印刷",
+      "english_name": "Risograph",
+      "tags": [
+        "孔版",
+        "印刷",
+        "riso"
+      ],
+      "suitable_for": [
+        "海报",
+        "卡牌",
+        "背景"
+      ],
+      "traits": "双色或三色套印，受控错版，颗粒墨点，平面造型",
+      "adaptation": "错版不可破坏UI定位或动作锚点",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G12",
+      "name": "布贴刺绣",
+      "english_name": "Fabric Applique",
+      "tags": [
+        "布料",
+        "刺绣",
+        "织物"
+      ],
+      "suitable_for": [
+        "道具",
+        "角色",
+        "UI"
+      ],
+      "traits": "布片大形，缝线边缘，短绒纹理，温暖材质",
+      "adaptation": "先读大形，缝线不能变成随机噪点",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G13",
+      "name": "软陶定格质感",
+      "english_name": "Clay Sprite",
+      "tags": [
+        "软陶",
+        "黏土",
+        "定格"
+      ],
+      "suitable_for": [
+        "角色",
+        "道具",
+        "图标"
+      ],
+      "traits": "圆润实体，哑光软陶，压痕克制，柔和固定光照",
+      "adaptation": "交付仍是2D栅格图，不能声称可编辑3D",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G14",
+      "name": "搪瓷玩具质感",
+      "english_name": "Enamel Toy",
+      "tags": [
+        "搪瓷",
+        "玩具",
+        "金属"
+      ],
+      "suitable_for": [
+        "图标",
+        "道具",
+        "组件"
+      ],
+      "traits": "饱满轮廓，光洁釉面，集中高光，清楚材质分界",
+      "adaptation": "保持高光方向，避免高光冲掉轮廓",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G15",
+      "name": "硬边矢量感",
+      "english_name": "Flat Vector Look",
+      "tags": [
+        "扁平",
+        "矢量",
+        "几何"
+      ],
+      "suitable_for": [
+        "图标",
+        "UI",
+        "组件"
+      ],
+      "traits": "精确几何轮廓，纯净填色，少量层级，统一圆角",
+      "adaptation": "生成物是栅格图，不宣称SVG矢量交付",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G16",
+      "name": "装饰线描",
+      "english_name": "Decorative Line",
+      "tags": [
+        "装饰",
+        "线描",
+        "花纹"
+      ],
+      "suitable_for": [
+        "UI",
+        "边框",
+        "卡牌"
+      ],
+      "traits": "连续优雅曲线，重复纹样，细粗节奏，有限金色点缀",
+      "adaptation": "留出内容区，组件连接处单独检查",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G17",
+      "name": "复古橡皮管动画",
+      "english_name": "Rubber Hose",
+      "tags": [
+        "复古",
+        "动画",
+        "卡通"
+      ],
+      "suitable_for": [
+        "角色",
+        "动作",
+        "表情"
+      ],
+      "traits": "弹性弧线四肢，清楚黑白块，圆手套形，简洁面部",
+      "adaptation": "动作关节弹性不能变成身份或肢体数量漂移",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G18",
+      "name": "漫画网点",
+      "english_name": "Halftone Comic",
+      "tags": [
+        "漫画",
+        "网点",
+        "美漫"
+      ],
+      "suitable_for": [
+        "角色",
+        "特效",
+        "卡牌"
+      ],
+      "traits": "有力外轮廓，平面阴影，受控网点，动势线",
+      "adaptation": "文字需按用户要求，动作线不要串到邻格",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G19",
+      "name": "铅笔彩铅",
+      "english_name": "Colored Pencil",
+      "tags": [
+        "彩铅",
+        "铅笔",
+        "手绘"
+      ],
+      "suitable_for": [
+        "头像",
+        "道具",
+        "插画"
+      ],
+      "traits": "可见铅笔排线，轻微叠色，柔和边缘，纸上笔压节奏",
+      "adaptation": "透明主体不附纸矩形，细线检查缩放损失",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G20",
+      "name": "粉彩梦境",
+      "english_name": "Soft Pastel",
+      "tags": [
+        "粉彩",
+        "梦幻",
+        "柔和"
+      ],
+      "suitable_for": [
+        "背景",
+        "肖像",
+        "法术"
+      ],
+      "traits": "柔粉色层，粉末状局部边缘，大面积柔和体积，少量锐边焦点",
+      "adaptation": "避免整图模糊；交互对象需要明确边缘",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G21",
+      "name": "暗色哥特绘画",
+      "english_name": "Gothic Painterly",
+      "tags": [
+        "哥特",
+        "暗黑",
+        "厚涂"
+      ],
+      "suitable_for": [
+        "怪物",
+        "场景",
+        "卡牌"
+      ],
+      "traits": "拉长形状，冷暗底色，集中的暖光，节制破损材质",
+      "adaptation": "暗部仍要有层级和可读轮廓",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G22",
+      "name": "等距手绘",
+      "english_name": "Isometric Painted",
+      "tags": [
+        "等距",
+        "建筑",
+        "地块"
+      ],
+      "suitable_for": [
+        "建筑",
+        "道具",
+        "地块"
+      ],
+      "traits": "统一等距投影，清楚顶面与侧面，手绘色块，固定光向",
+      "adaptation": "视角与底面尺寸必须一致，要求平铺才检查接缝",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G23",
+      "name": "霓虹图形",
+      "english_name": "Neon Graphic",
+      "tags": [
+        "霓虹",
+        "科幻",
+        "发光"
+      ],
+      "suitable_for": [
+        "特效",
+        "图标",
+        "UI"
+      ],
+      "traits": "深色实体骨架，高饱和边缘光，窄范围辉光，几何节奏",
+      "adaptation": "深底预览不能代替真实Alpha，辉光保留渐变",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    },
+    {
+      "id": "G24",
+      "name": "平涂民艺",
+      "english_name": "Folk Flat",
+      "tags": [
+        "民艺",
+        "装饰",
+        "平涂"
+      ],
+      "suitable_for": [
+        "角色",
+        "卡牌",
+        "场景"
+      ],
+      "traits": "朴拙形状，鲜明有限配色，秩序化植物纹样，手绘边缘",
+      "adaptation": "纹样服从主体，不能自动加入未要求的植物",
+      "preview_status": "text-recipe-unvalidated",
+      "reference_path": null
+    }
+  ]
+}

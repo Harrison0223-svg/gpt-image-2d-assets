@@ -1,0 +1,30 @@
+{
+  "image_tool": "built-in GPT Image",
+  "image_backend": "unknown",
+  "sheet": "fox-run-3x3-v2.png",
+  "previous_sheet": "fox-run-3x3.png",
+  "gif": "preview.gif",
+  "frame_count": 9,
+  "frame_durations_ms": [
+    90,
+    90,
+    90,
+    90,
+    90,
+    90,
+    90,
+    90,
+    90
+  ],
+  "duration_ms": 810,
+  "loop": 0,
+  "style_comparison": [
+    "G03",
+    "G01",
+    "G05"
+  ],
+  "status": "demonstration-candidate",
+  "visual_findings": "狐狸身份、服装和侧视方向保持可辨认；首版相近姿势较多，已生成步态修订版。步态仍需游戏目标尺寸及实机复核，不宣称商业动画验收通过。像素风图是视觉方向展示，未证明逐像素制作规范合格。",
+  "engine_validation": false,
+  "user_acceptance": false
+}

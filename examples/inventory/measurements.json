@@ -1,0 +1,51 @@
+{
+  "path": "inventory-sheet.png",
+  "source_mode": "RGBA",
+  "has_alpha_metadata": true,
+  "size": [
+    1254,
+    1254
+  ],
+  "sha256": "b6f4e50d276939c9c52b63de56de2602ce56961f110af79050cd65044a332e07",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1032330,
+  "partial_pixels": 539064,
+  "near_opaque_pixels": 500115,
+  "opaque_pixels": 1122,
+  "partial_fraction": 0.34280350724571323,
+  "bbox_nonzero": [
+    0,
+    21,
+    1235,
+    1254
+  ],
+  "bbox_alpha16": [
+    88,
+    23,
+    1219,
+    1215
+  ],
+  "bbox_alpha128": [
+    89,
+    24,
+    1218,
+    1214
+  ],
+  "content_state": "has_transparency",
+  "visual_acceptance": "not_assessed",
+  "preview": {
+    "backgrounds": [
+      "#101820",
+      "#ffffff",
+      "#807060"
+    ],
+    "single_tile_size": [
+      900,
+      900
+    ],
+    "source_unchanged": true
+  }
+}

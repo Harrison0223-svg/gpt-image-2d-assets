@@ -1,0 +1,4 @@
+interface:
+  display_name: "GPT Image 2D 美术与风格"
+  short_description: "自选图库、游戏配方或参考画风，生成并审核角色、场景、组件和动作资源"
+  default_prompt: "使用 $gpt-image-2d-assets，按 G03 赛璐璐风格制作透明角色母版，并检查实际图片。"
