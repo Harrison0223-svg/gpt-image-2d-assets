@@ -1,31 +1,23 @@
-# A fox in three styles, then a short run loop
+# Share-ready article: Codex 2D art from style choice to a nine-frame GIF
 
-We combined a style library with a 2D asset workflow and tried it on a fox courier. The source images, prompts and output files are included here.
+This English article records the same fox courier demo used in the Chinese social-post archive. It combines the style-selection skill with the 2D asset skill in Codex and targets the current GPT-image-2.5 workflow.
 
-First, three versions of the same standing character: cel, pixel and watercolor. The outfit, bag and pose stay recognizable across them.
+The workflow began with Yang's handdraw-style skill and its 261 original reference styles. We later added 24 game-art recipes. The fox keeps its outfit, shoulder bag and standing pose while moving between cel, pixel and watercolor directions.
 
 ![Cel, pixel and watercolor foxes](../examples/fox-motion/fox-style-comparison.png)
 
-For the motion test, the request was a right-facing run cycle on a 3×3 sheet. The first result had several similar poses. A second generation targeted those missing gait phases.
+For motion, the request was a right-facing run on a 3×3 sheet. The first result repeated several poses, so we generated a revised pass. The sheet was cut into nine PNGs and assembled into a 90 ms-per-frame GIF. The source, frames and timing file remain available for another edit.
 
 ![Revised 3×3 sheet](../examples/fox-motion/fox-run-3x3-v2.png)
 
-The revised image is 1254×1254 pixels. It divides into nine 418×418 cells. We cropped them in row order and assembled a GIF at 90 ms per frame, for an 810 ms loop.
-
 ![Nine-frame run preview](images/03-run.gif)
 
-This is a motion study. Foot timing and the loop transition still need work before it goes into a game. The files include the first attempt, revised sheet, nine PNGs and timing data so the next pass can start from the actual result.
+The GIF is a motion study. Foot timing and the loop seam still need attention before game integration. Playing it makes those issues easier to see than a row of still images.
 
-We also made a matching set of inventory items: a potion, key, gem and scroll. The small preview helps show which details survive at icon size.
+We also generated a matching potion, key, gem and scroll set. The grouped source keeps palette and lighting closer, while the small preview shows which details survive at icon size.
 
 ![Inventory items](../examples/inventory/small-preview.png)
 
-The same workflow can be used for expressions, chest states, UI pieces or the stages of a spell. Choose a style, keep the shared design constraints, generate a group, then inspect and split the result.
+In Codex, call the skill and describe the style you want. Use a character, a prop or a scene. The same workflow can cover chest states, expressions, skill icons and spell stages from charge to fade.
 
-## Files
-
-- [Motion source files and prompts](../examples/fox-motion)
-- [Frame crops and timing](../examples/fox-motion/sequence-v2.json)
-- [Motion review record](../examples/fox-motion/record.json)
-- [Inventory source and alpha measurements](../examples/inventory)
-- [Installation and usage](../README.md)
+[Repository and installation](../README.md) · [Full demo notes](fox-demo.md)

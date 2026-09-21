@@ -11,7 +11,7 @@ One worker owns a related sheet, continuous action/effect or corresponding state
 A handoff should include:
 
 ```text
-Use built-in GPT Image and the stated identity/style/pose roles of each reference.
+Use the Codex GPT-image-2.5 workflow and the stated identity/style/pose roles of each reference.
 Write only to the assigned version directory; retain exact outputs and masters.
 Asset list, phases, canvas/display size, allowed alpha effects and references: ...
 Call budget and targeted repair scope, proportionate to this batch: ...
@@ -33,4 +33,4 @@ The main task inspects masters, contact sheets covering every delivered item and
 
 Report specific defects, affected assets and invariant features. Delegate only the required repair and inspect it again. Existing direction approval remains valid; do not invent batch approval gates.
 
-If subagents or built-in image generation are unavailable, state the limitation. Do not silently switch models or providers. Continue directly within authorized scope unless the user requires delegation, in which case explain the blocker and continue possible organization and review.
+If subagents or the Codex GPT-image-2.5 workflow are unavailable, state the limitation. Do not silently switch models or providers. Continue directly within authorized scope unless the user requires delegation, in which case explain the blocker and continue possible organization and review.

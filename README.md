@@ -1,12 +1,14 @@
 # GPT Image 2D Assets
 
-Pick a style, make a sprite sheet, and turn it into a GIF. A pair of Codex skills for making and reviewing 2D art with built-in GPT Image.
+Pick a style, make a sprite sheet, and turn it into a GIF. A pair of Codex skills for making and reviewing 2D art with Codex's current GPT-image-2.5 workflow.
+
+The main workflow is Codex. In the current setup, GPT-image-2.5 can remove backgrounds and generate continuous frames. Always inspect the returned files: model output can still drift between frames or change an identity.
 
 ## A fox, nine frames
 
 ![Fox run preview](examples/fox-motion/preview.gif)
 
-This demo started as a 3×3 sheet. We cut it into nine PNGs and assembled a loop at 90 ms per frame. The first attempt repeated similar poses, so we generated a revised sheet. Both versions are included. The gait still needs refinement before use in a game.
+This demo started as a 3×3 sheet. We cut it into nine PNGs and assembled a loop at 90 ms per frame. The first attempt repeated similar poses, so we pointed out the issue and generated a revised sheet. Both versions are included. The gait still needs refinement before use in a game.
 
 [Sprite sheet](examples/fox-motion/fox-run-3x3-v2.png) · [Individual frames](examples/fox-motion) · [Timing and crop data](examples/fox-motion/sequence-v2.json)
 
@@ -31,7 +33,7 @@ The included tools inspect alpha, crop sheets with explicit coordinates, and ass
 
 ## Install
 
-Use a Codex environment with access to built-in GPT Image. Copy both folders into your Codex skills directory, usually `~/.codex/skills/`:
+Use Codex with the GPT-image-2.5 image workflow. Copy both folders into your Codex skills directory, usually `~/.codex/skills/`:
 
 ```text
 gpt-image-2d-assets/
@@ -49,7 +51,7 @@ python -m pip install Pillow
 ## Try it
 
 ```text
-Use $gpt-image-2d-assets to make a fox courier in G03 style.
+In Codex, call `$gpt-image-2d-assets` to make a fox courier in G03 style.
 Keep the background transparent.
 
 Make a 3×3 run cycle for this fox, facing right.
@@ -70,7 +72,7 @@ python handdraw-style-prompter/scripts/style_catalog.py --search watercolor
 python gpt-image-2d-assets/scripts/asset_tools.py inspect examples/inventory/inventory-sheet.png --out review-v1
 ```
 
-The selected main model, including Astra, plans the work and reviews the actual images. Built-in GPT Image handles generation and edits. The coordinator model name does not identify the image backend.
+The selected Codex model plans the work and reviews the actual images. GPT-image-2.5 handles the current generation and editing workflow, including background removal and continuous-frame requests. Re-check the active tool schema when the environment changes; the model name is not a promise of a hidden parameter.
 
 ## Examples and notes
 
@@ -86,6 +88,6 @@ python gpt-image-2d-assets/scripts/test_asset_tools.py
 
 ## Credits
 
-The original 261-style library and images come from [yang0/handraw-style](https://github.com/yang0/handraw-style), using baseline `70bf51d6b4c301805dd6c083355a2ad18db1023b`. This repository adds the asset workflow, game-style recipes, inspection tools and demos.
+The style workflow started by calling [Yang's handdraw-style skill](https://github.com/yang0/handraw-style). Its 261 original styles and images are preserved here, and this repository adds 24 game-art recipes, the asset workflow, inspection tools and demos. The source baseline is `70bf51d6b4c301805dd6c083355a2ad18db1023b`.
 
 See [the upstream license](UPSTREAM-LICENSE.txt). The reference images and artist index are credited source material, not original artwork by this project. Their inclusion is not a guarantee of rights to use them as commercial game assets.

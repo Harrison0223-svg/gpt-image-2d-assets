@@ -14,7 +14,7 @@ Highlights, pale hair and soft light may be legitimate. Do not remove pixels sol
 ## Repair
 
 - Clean native alpha: retain it; do not automatically remove the background again.
-- Baked background/checkerboard: use a focused built-in GPT Image transparency edit, then check both alpha and subject changes.
+- Baked background/checkerboard: use a focused Codex GPT-image-2.5 transparency edit, then check both alpha and subject changes.
 - Specific residue: identify the region and structures to preserve. Do not promise pixel-perfect preservation from a generative edit.
 - Continued failure: retain versions and investigate the call. Distinguish one failed output from unsupported capability. Follow the entrypoint's retry limits; do not substitute threshold masking, blur or another generator for the art task.
 

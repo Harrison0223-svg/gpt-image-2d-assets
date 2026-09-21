@@ -1,9 +1,9 @@
 ---
 name: gpt-image-2d-assets
-description: Generate, edit and review 2D art with built-in GPT Image. Choose from 261 reference styles, 24 game-art recipes, custom references or mixed traits; inspect transparency, cut sprite sheets and deliver timed animation previews.
+description: Generate, edit and review 2D art in Codex with the current GPT-image-2.5 workflow. Choose from 261 reference styles, 24 game-art recipes, custom references or mixed traits; remove backgrounds, generate continuous frames, inspect transparency, cut sprite sheets and deliver timed animation previews.
 ---
 
-# GPT Image 2D Assets
+# GPT Image 2D Assets for Codex
 
 Handle style exploration, prompt writing, asset generation or review according to the user's request. Cover game assets and standalone illustrations without taking over game development. Reuse the current authorization and selected style; respect explicit discussion, direction-selection and user-acceptance gates.
 
@@ -17,16 +17,16 @@ Handle style exploration, prompt writing, asset generation or review according t
 - Read [delegation](references/delegation.md) only when delegation is explicitly enabled and independent work exists. Otherwise execute on the main task.
 - For tool parameters or model questions, read [capabilities](references/capabilities.md) and check the current schema.
 
-## Working with Astra
+## Working with Codex and GPT-image-2.5
 
-Keep the user's selected main model responsible for planning, reference analysis, prompts, actual image review and repair decisions. Astra is the coordinator, not the image backend. Do not invent unexposed model, seed, quality, background or FPS parameters.
+Keep the user's selected Codex model responsible for planning, reference analysis, prompts, actual image review and repair decisions. The current workflow uses GPT-image-2.5 for generation and editing; it can remove backgrounds and generate continuous-frame requests in Codex. Re-check the active schema when the environment changes. Do not invent unexposed model, seed, quality, background or FPS parameters.
 
 Record the useful asset constraints: purpose, target display size, subject and identity, camera, proportions, observable style traits, reference roles, transparency and output organization. Omit irrelevant fields. Reuse this contract across a batch.
 
 ## Generate, review and deliver
 
 1. Organize prompts as subject, style, asset structure and necessary constraints. Describe contours, color blocks, lighting, materials and detail density. Reference subjects, text and compositions must not leak into the requested asset. Prioritize readability at the intended size.
-2. Generate and edit art only with built-in GPT Image. Inspect local references first. Save the exact returned original, prompt, reference roles, output path and call status in a versioned directory. Do not guess the newest file or overwrite masters. Scripts may measure, crop, pad and assemble existing pixels; they must not draw substitutes or fabricate motion.
+2. Generate and edit art through the current Codex GPT-image-2.5 workflow. Inspect local references first. Save the exact returned original, prompt, reference roles, output path and call status in a versioned directory. Background removal and continuous-frame generation are available workflow operations, but the returned files still need review. Do not guess the newest file or overwrite masters. Scripts may measure, crop, pad and assemble existing pixels; they must not draw substitutes or fabricate motion.
 3. Inspect the shared master before expanding. Generate related actions, spell stages, states and components together where practical. Choose the grid for the content and readability: 3×3 and 4×4 are examples, not fixed requirements. Play separate sequences separately. Discrete states are not continuous animation. Independent illustrations do not require a sheet.
 4. Open the actual results. Review subject accuracy, identity, style, edges and target-size readability. Check both frames and playback for motion. Add appropriate pixel, alpha or seam checks. Record specific defects, retain good outputs, make targeted repairs and inspect the new result.
 5. Deliver originals, components or sequences, necessary playback previews and concise records. Distinguish generation, technical checks, visual review, engine validation and user acceptance.

@@ -1,6 +1,6 @@
 interface:
-  display_name: "2D 风格库与提示词"
-  short_description: "检索 261 个原图风格与 24 个游戏风格配方，支持自定义和混合画风"
-  default_prompt: "使用 $handdraw-style-prompter，帮我从原图库与游戏风格配方中选择适合当前主题的画风。"
+  display_name: "2D Style Library and Prompts"
+  short_description: "Browse 261 reference styles and 24 game-art recipes, with custom and mixed directions"
+  default_prompt: "Use $handdraw-style-prompter in Codex. Help me choose a style from the reference library or game-art recipes for this subject."
 policy:
   allow_implicit_invocation: true

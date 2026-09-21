@@ -1,26 +1,38 @@
-# A fox in three styles, then a short run loop
+# Codex 2D art: from style choice to a nine-frame GIF
 
-We combined a style library with a 2D asset workflow and tried it on a fox courier. The source images, prompts and output files are included here.
+This is the shareable version of the fox courier demo. The workflow combines the style-selection skill with the 2D asset skill and runs in Codex. The current setup uses GPT-image-2.5 for background removal and continuous-frame generation.
 
-First, three versions of the same standing character: cel, pixel and watercolor. The outfit, bag and pose stay recognizable across them.
+The style side started with Yang's handdraw-style skill: 261 original reference styles. We later added 24 game-art recipes for the kinds of characters, props, effects and UI pieces used in game production.
+
+## Same fox, three directions
+
+The outfit, shoulder bag and standing pose stay the same while the drawing language changes.
 
 ![Cel, pixel and watercolor foxes](../examples/fox-motion/fox-style-comparison.png)
 
-For the motion test, the request was a right-facing run cycle on a 3×3 sheet. The first result had several similar poses. A second generation targeted those missing gait phases.
+The cel version is my favorite for this character. Its outline stays clean and the teal cape sits well against the orange fur. The watercolor version leans toward illustration. The pixel version is a useful direction for another game style.
+
+Pick a style ID, attach a reference image or mix a few traits. For example: keep the cel color blocks and add cut-paper edges. Make a small sample first, then continue with the chosen direction.
+
+## Nine frames
+
+The motion request was simple: face right, run through nine continuous poses, arrange them as a 3×3 sheet, and keep the outfit and proportions stable.
 
 ![Revised 3×3 sheet](../examples/fox-motion/fox-run-3x3-v2.png)
 
-The revised image is 1254×1254 pixels. It divides into nine 418×418 cells. We cropped them in row order and assembled a GIF at 90 ms per frame, for an 810 ms loop.
+We cut the sheet into nine PNGs and assembled a GIF at 90 ms per frame. The source sheet, individual frames and timing data stay in the repository, so the next pass can speed up the loop or hold one pose for longer.
 
 ![Nine-frame run preview](images/03-run.gif)
 
-This is a motion study. Foot timing and the loop transition still need work before it goes into a game. The files include the first attempt, revised sheet, nine PNGs and timing data so the next pass can start from the actual result.
+The first attempt had several poses that looked too similar. We called that out and generated a revised pass. This GIF is useful for checking the direction of the motion; foot timing and the loop seam still need work before it goes into a game. Playing it is a faster way to judge the sequence than staring at nine stills.
 
-We also made a matching set of inventory items: a potion, key, gem and scroll. The small preview helps show which details survive at icon size.
+## A matching prop set
+
+We also made a potion, key, gem and scroll in one grouped image, then split them out. Shared lighting and palette make them easier to keep together. The small preview shows which details survive at icon size.
 
 ![Inventory items](../examples/inventory/small-preview.png)
 
-The same workflow can be used for expressions, chest states, UI pieces or the stages of a spell. Choose a style, keep the shared design constraints, generate a group, then inspect and split the result.
+The same process fits chest open/close states, character expressions, skill icons and spell stages from charge to fade. In Codex, call the skill and describe the style you want. The subject can be a character or a scene in the same visual language.
 
 ## Files
 

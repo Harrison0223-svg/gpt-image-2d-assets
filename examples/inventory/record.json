@@ -1,6 +1,6 @@
 {
-  "tool": "built-in GPT Image",
-  "image_backend": "unknown",
+  "tool": "Codex GPT-image-2.5 workflow",
+  "image_backend": "GPT-image-2.5",
   "style": [
     "G03",
     "G10 secondary shape language"

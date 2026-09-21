@@ -1,6 +1,6 @@
 {
-  "image_tool": "built-in GPT Image",
-  "image_backend": "unknown",
+  "image_tool": "Codex GPT-image-2.5 workflow",
+  "image_backend": "GPT-image-2.5",
   "sheet": "fox-run-3x3-v2.png",
   "previous_sheet": "fox-run-3x3.png",
   "gif": "preview.gif",

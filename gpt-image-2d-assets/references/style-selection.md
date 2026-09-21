@@ -23,7 +23,7 @@ For an authorized visual comparison, keep the subject, camera and proportions co
 
 Separate visual traits from example content. Inherit linework, shapes, color, lighting and material treatment. Do not import example characters, props, jokes, white backgrounds or large margins over the user's subject, alpha or camera requirements. Artist names are index labels; a production prompt must describe the needed visual traits.
 
-For an original style, use `scripts/resolve_reference.py --style 063`. Keep the default backend unknown unless current evidence supports `--model`. Neither Astra nor an old `gpt-image-2` configuration proves the current backend. `activation_source` is a historical routing suggestion, not a validation report. Explicit reference requests override it.
+For an original style, use `scripts/resolve_reference.py --style 063`. The current target workflow is Codex with GPT-image-2.5. Pass `--model` only when the active environment exposes and documents that parameter. `activation_source` is a historical routing suggestion, not a validation report. Explicit reference requests override it.
 
 Inspect local references before use and label each as identity, style, pose or layout. For a style-only image, specify that it supplies linework, brushwork, color and texture; the current asset brief controls subject, identity, action, layout, background and text. Follow the actual tool schema for recent-image references rather than inventing paths.
 
