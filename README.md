@@ -12,6 +12,10 @@ This demo started as a 3×3 sheet. We cut it into nine PNGs and assembled a loop
 
 [Sprite sheet](examples/fox-motion/fox-run-3x3-v2.png) · [Individual frames](examples/fox-motion) · [Timing and crop data](examples/fox-motion/sequence-v2.json)
 
+## Motion workflow update — September 2026
+
+The [motion experiments](docs/motion-validation-2026-09-22.md) compare direct sheets, explicit phases, key poses and targeted repairs. The skill now checks opposing key poses and connected limbs before expanding unfamiliar motion, and includes a small offline comparison player. The refined run and jump are review candidates; the wave remains on hold. These tests do not establish reliable production-quality animation. The original demo above is preserved.
+
 ## Try a different look
 
 ![The same fox in cel, pixel and watercolor styles](examples/fox-motion/fox-style-comparison.png)

@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-22",
+  "status": "review-candidates-not-production-acceptance",
+  "submissions": 15,
+  "returned_images": 14,
+  "tool": "built-in GPT Image",
+  "backend_model": "not returned",
+  "engine_validation": false,
+  "user_acceptance": false,
+  "files": {
+    "run-preview.gif": {
+      "sha256": "2c712007acc1adf5099717691d85b6578375a3441d7d0e5f95c30b96607cc66b",
+      "origin_trial": "F5_layout"
+    },
+    "jump-preview.gif": {
+      "sha256": "81a98938f753cf453ba340ee5e9a05fde18b93d1b2f8b9e0810b987ad85c8b4b",
+      "origin_trial": "G_jump"
+    },
+    "wave-hold.png": {
+      "sha256": "9e380e264eb8cd4b1ad4050bcc783758cc44975de57aa78874f2e496db04fa69",
+      "origin_trial": "E5_single_repair"
+    }
+  },
+  "local_only_evidence": [
+    "Full-resolution source sheets, crop manifests, ordered PNG frames and complete experiment archive"
+  ],
+  "publication_note": "Public evidence is limited to review previews and prompts after upload timeouts. Full sources and exact crop evidence are preserved locally."
+}

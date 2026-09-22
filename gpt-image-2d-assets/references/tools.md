@@ -49,3 +49,23 @@ python "<skill-dir>/scripts/test_asset_tools.py"
 ```
 
 Tests cover alpha classification, exact crops/padding, GIF duration, bounds rejection and non-overwrite behavior. They do not replace art review.
+
+## Offline motion comparison
+
+Create a comparison JSON referencing existing assembly directories; paths resolve relative to this JSON and IDs must be unique:
+
+```json
+{"title":"Run comparison","sequences":[
+  {"id":"old","title":"Original","assembly":"old/frames","review":"Hold","notes":"Frame 4 switches arms"},
+  {"id":"new","title":"Candidate","assembly":"new/frames","review":"Pending"}
+]}
+```
+
+```sh
+python "<skill-dir>/scripts/motion_review.py" build comparison.json --out new-review
+python "<skill-dir>/scripts/test_motion_review.py"
+```
+
+The self-contained index.html includes start/pause, restart, 0.25/0.5/1 speed, independent frame stepping, a timeline, three backgrounds and display sizing. One-shot actions stop at their end. Start after stepping explicitly restarts all sequences. Shared elapsed time does not mean matching action phase for sequences of different lengths. The 128/256 px setting is canvas height, not normalized character height.
+
+diagnostics.json reports exact RGBA duplicates, timing, dimensions and an end-to-start pixel-difference hint. Valid holds can repeat and valid loop endpoints can differ. None of these is an animation-quality score. Source PNGs remain unchanged; the player does not crop, align, draw or interpolate.
